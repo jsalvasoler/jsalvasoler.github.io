@@ -3,11 +3,11 @@
 # check out https://github.com/toml-lang/toml for more info on the toml format
 
 # name of the folder that the site will be generated in
-name = "bio
+name = "bio"
 
 # the notion.so page to being parsing from. This page will become the index.html
 # of the generated site, and loconotion will parse all sub-pages present on the page
-page = "https://www.notion.so/Joan-Salv-Soler-aa45d5156b814be68876561c02381c69f"
+page = "https://political-radio-a93.notion.site/Joan-Salv-Soler-aa45d5156b814be68876561c02381c69"
 
 # optionally apply notion's dark mode, remove the line below to use the default light mode
 theme = "dark"
