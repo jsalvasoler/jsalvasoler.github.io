@@ -1,5 +1,6 @@
 {
   "name": "nextjs-notion-starter-kit",
+  "homepage": "https://jsalvasoler.github.io",
   "version": "2.0.0",
   "private": true,
   "description": "The perfect starter kit for building beautiful websites with Next.js and Notion.",
@@ -10,13 +11,13 @@
     "node": ">=16"
   },
   "scripts": {
-    "homepage": "https://jsalvasoler.github.io/nextjs-notion-starter-kit",
+    "homepage": "https://jsalvasoler.github.io",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "export": "next export",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out",
+    "deploy": "gh-pages -d build",
     "deps": "run-s deps:*",
     "deps:update": "[ -z $GITHUB_ACTIONS ] && yarn add notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:update on CI'",
     "deps:link": "[ -z $GITHUB_ACTIONS ] && yarn link notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:link on CI'",
