@@ -1,6 +1,6 @@
-name: Build
+name: Build node.js notion
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   Build:
