@@ -1,0 +1,1395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta name="generator" content="pandoc" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+                        <title></title>
+        <style type="text/css">code{white-space: pre;}</style>
+                            <style type="text/css">
+            div.sourceCode { overflow-x: auto; }
+            table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+              margin: 0; padding: 0; vertical-align: baseline; border: none; }
+            table.sourceCode { width: 100%; line-height: 100%; }
+            td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+            td.sourceCode { padding-left: 5px; }
+            code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+            code > span.dt { color: #902000; } /* DataType */
+            code > span.dv { color: #40a070; } /* DecVal */
+            code > span.bn { color: #40a070; } /* BaseN */
+            code > span.fl { color: #40a070; } /* Float */
+            code > span.ch { color: #4070a0; } /* Char */
+            code > span.st { color: #4070a0; } /* String */
+            code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+            code > span.ot { color: #007020; } /* Other */
+            code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+            code > span.fu { color: #06287e; } /* Function */
+            code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+            code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+            code > span.cn { color: #880000; } /* Constant */
+            code > span.sc { color: #4070a0; } /* SpecialChar */
+            code > span.vs { color: #4070a0; } /* VerbatimString */
+            code > span.ss { color: #bb6688; } /* SpecialString */
+            code > span.im { } /* Import */
+            code > span.va { color: #19177c; } /* Variable */
+            code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+            code > span.op { color: #666666; } /* Operator */
+            code > span.bu { } /* BuiltIn */
+            code > span.ex { } /* Extension */
+            code > span.pp { color: #bc7a00; } /* Preprocessor */
+            code > span.at { color: #7d9029; } /* Attribute */
+            code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+            code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+            code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+            code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+            </style>
+                                    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+                            <style>
+            body {
+                font-family: Georgia;
+                max-width: 800px;
+                margin: 0 auto;
+                line-height: 30px;
+                font-size: 16px;
+                padding-left: 350px;
+                padding-right: 50px;
+                color: #111;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                font-family: Arial;
+            }
+            
+            h1 {
+                padding-top: 200px;
+                line-height: 50px;
+            }
+            h2 {
+                padding-top: 30px;
+            }
+            h3 {
+                padding-top: 20px;
+            }
+            h4 {
+                padding-top: 10px;
+            }
+            p {
+                text-align: justify;
+            }
+            p a {
+                word-wrap: break-word;
+                white-space: pre;
+            }
+            code {
+                word-wrap: break-word;
+            }
+            blockquote {
+                border-left: 3px solid #eee;
+                margin-left: 20px;
+                padding-left: 20px;
+            }
+            
+            ::selection {
+                background-color: #E4E4E4;
+            }
+            
+            table {
+                width: 100%;
+            }
+            table caption {
+                font-weight: bold;
+            }
+            table tr {
+                padding: 0;
+                margin: 0;
+                background-color: #f0f0f0;
+            }
+            table tr.even {
+                background-color: #fafafa;
+            }
+            table td {
+                margin: 0;
+                padding: 3px 5px;
+            }
+            
+            p span.added {
+                color: green;
+                background-color: #FFF3C5;
+            }
+            p span.removed {
+                color: red;
+                background-color: #FFF3C5;
+            }
+            
+            #title-page {
+                padding: 80px 0;
+            }
+            
+            #TOC {
+                position: fixed;
+                left: 0;
+                top: 0;
+                overflow-y: scroll;
+                height: 100%;
+                background: #fafafa;
+                max-width: 300px;
+                font-family: Arial;
+                font-size: 15px;
+                line-height: 30px;
+            }
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+                background-color: #ECECEC;
+            }
+            ::-webkit-scrollbar-thumb {
+                background-color: #B0B0B0;
+                border-radius: 8px;
+            }
+            #TOC > ul {
+                padding-right: 10px;
+            }
+            #TOC ul {
+                list-style: none;
+                padding-left: 20px;
+            }
+            #TOC ul li a {
+                text-decoration: none;
+                color: #364149;
+                text-overflow: ellipsis;
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            #TOC ul li a:hover {
+                color: #008cff;
+            }
+            
+            .figure {
+                text-align: center;
+            }
+            .figure p {
+                text-align: center;
+                font-style: italic;
+            }
+            .figure img {
+                  width: 100%;
+            }
+            
+            a.external_link {
+              background: url(https://qsf.ec.quoracdn.net/-3-images.new_grid.external_link.svg-26-aef78ead48f1f1e2.svg) no-repeat right .3em;
+              padding-right: 15px;
+              background-size: 10.5px;
+              color: #D52A32;
+            }
+            </style>
+                <script src="js/jquery.js"></script>
+        <script src="js/diff.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+                <!--
+                -->
+        <div id="title-page">
+            <img src="./epfl_logo.jpg" width="300">
+            <h1>Enrich And Clean Image Collections Using Deep Learning</h1>
+            <h2>Arnaud Miribel</h2>
+            <h4>Supervised by :
+            <ul>
+            <li>K. Karp, D. Amselem, H. Mignot (Data Science, <a href="http://www.equancy.com" class="external_link">Equancy</a>)</li>
+            <li>M. Jaggi (Tenure Track Professor, <a href="http://mlo.epfl.ch" class="external_link">Machine Learning and Optimization Laboratory</a>,
+            <a href="http://www.epfl.ch" class="external_link">EPFL</a>)</li>
+            </ul>
+            </h4>
+        </div>
+                    <div id="TOC">
+                <ul>
+                <li><a href="#abstract">Abstract</a></li>
+                <li><a href="#acknowledgements">Acknowledgements</a></li>
+                <li><a href="#abbreviations">Abbreviations</a></li>
+                <li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+                <li><a href="#background"><span class="toc-section-number">2</span> Background</a><ul>
+                <li><a href="#images-a-special-kind-of-data"><span class="toc-section-number">2.1</span> Images, a special kind of data</a><ul>
+                <li><a href="#unstructured-data"><span class="toc-section-number">2.1.1</span> Unstructured data</a></li>
+                <li><a href="#from-unstructured-to-structured-data"><span class="toc-section-number">2.1.2</span> From unstructured to structured data</a></li>
+                <li><a href="#limits-of-manual-task-force"><span class="toc-section-number">2.1.3</span> Limits of manual task force</a></li>
+                <li><a href="#computer-vision-algorithms-to-the-rescue"><span class="toc-section-number">2.1.4</span> Computer Vision algorithms to the rescue</a></li>
+                </ul></li>
+                <li><a href="#neural-networks"><span class="toc-section-number">2.2</span> Neural Networks</a><ul>
+                <li><a href="#perceptrons"><span class="toc-section-number">2.2.1</span> Perceptron(s)</a></li>
+                <li><a href="#activation-functions"><span class="toc-section-number">2.2.2</span> Activation functions</a></li>
+                <li><a href="#learning"><span class="toc-section-number">2.2.3</span> Learning</a></li>
+                <li><a href="#strength-1-representation-power"><span class="toc-section-number">2.2.4</span> Strength 1 : representation power</a></li>
+                <li><a href="#strength-2-feature-extraction-as-part-of-the-learning"><span class="toc-section-number">2.2.5</span> Strength 2 : feature extraction as part of the learning</a></li>
+                </ul></li>
+                <li><a href="#deep-learning-for-computer-vision"><span class="toc-section-number">2.3</span> Deep Learning for Computer Vision</a><ul>
+                <li><a href="#deep-learning"><span class="toc-section-number">2.3.1</span> Deep Learning</a></li>
+                <li><a href="#convolutional-nns"><span class="toc-section-number">2.3.2</span> Convolutional NNs</a></li>
+                <li><a href="#convolutions"><span class="toc-section-number">2.3.3</span> Convolutions</a></li>
+                <li><a href="#feature-maps"><span class="toc-section-number">2.3.4</span> Feature maps</a></li>
+                <li><a href="#transfer-learning"><span class="toc-section-number">2.3.5</span> Transfer learning</a></li>
+                <li><a href="#overfitting"><span class="toc-section-number">2.3.6</span> Overfitting</a></li>
+                <li><a href="#applications"><span class="toc-section-number">2.3.7</span> Applications</a></li>
+                </ul></li>
+                <li><a href="#other-traditional-ml-models"><span class="toc-section-number">2.4</span> Other traditional ML models</a></li>
+                </ul></li>
+                <li><a href="#project-1-race-car-recognition"><span class="toc-section-number">3</span> Project 1 : Race Car Recognition</a><ul>
+                <li><a href="#introduction-1"><span class="toc-section-number">3.1</span> Introduction</a></li>
+                <li><a href="#classification-1"><span class="toc-section-number">3.2</span> Classification</a><ul>
+                <li><a href="#localization-1"><span class="toc-section-number">3.2.1</span> Localization</a></li>
+                </ul></li>
+                <li><a href="#conclusion"><span class="toc-section-number">3.3</span> Conclusion</a></li>
+                </ul></li>
+                <li><a href="#data-quality"><span class="toc-section-number">4</span> Data Quality</a><ul>
+                <li><a href="#definitions"><span class="toc-section-number">4.1</span> Definitions</a></li>
+                <li><a href="#bootstrap-aggregating-for-noise-robustness"><span class="toc-section-number">4.2</span> Bootstrap aggregating for noise-robustness</a><ul>
+                <li><a href="#ensembling"><span class="toc-section-number">4.2.1</span> Ensembling</a></li>
+                <li><a href="#bagging"><span class="toc-section-number">4.2.2</span> Bagging</a></li>
+                <li><a href="#experiments"><span class="toc-section-number">4.2.3</span> Experiments</a></li>
+                </ul></li>
+                <li><a href="#detecting-mislabeled-data-points"><span class="toc-section-number">4.3</span> Detecting mislabeled data points</a></li>
+                </ul></li>
+                <li><a href="#project-2-data-quality-on-a-companys-internal-gallery"><span class="toc-section-number">5</span> Project 2 : Data Quality On A Company's Internal Gallery</a><ul>
+                <li><a href="#introduction-2"><span class="toc-section-number">5.1</span> Introduction</a></li>
+                <li><a href="#data-description"><span class="toc-section-number">5.2</span> Data description</a><ul>
+                <li><a href="#items"><span class="toc-section-number">5.2.1</span> Items</a></li>
+                <li><a href="#taxonomy-fields"><span class="toc-section-number">5.2.2</span> Taxonomy fields</a></li>
+                <li><a href="#keywords"><span class="toc-section-number">5.2.3</span> Keywords</a></li>
+                </ul></li>
+                <li><a href="#defining-a-scope"><span class="toc-section-number">5.3</span> Defining a scope</a></li>
+                <li><a href="#evaluation"><span class="toc-section-number">5.4</span> Evaluation</a></li>
+                <li><a href="#methods"><span class="toc-section-number">5.5</span> Methods</a><ul>
+                <li><a href="#visualizing-the-dataset"><span class="toc-section-number">5.5.1</span> Visualizing the dataset</a></li>
+                <li><a href="#modeling"><span class="toc-section-number">5.5.2</span> Modeling</a></li>
+                </ul></li>
+                <li><a href="#supplementary-applications"><span class="toc-section-number">5.6</span> Supplementary applications</a></li>
+                <li><a href="#failures"><span class="toc-section-number">5.7</span> Failures</a><ul>
+                <li><a href="#fcnn-on-asset-type"><span class="toc-section-number">5.7.1</span> FCNN on Asset Type</a></li>
+                <li><a href="#include-keywords-embeddings-into-the-training-tf-idf-features"><span class="toc-section-number">5.7.2</span> Include Keywords embeddings into the training (TF-IDF features)</a></li>
+                <li><a href="#training-on-imagenet-for-keywords"><span class="toc-section-number">5.7.3</span> Training on ImageNet for Keywords</a></li>
+                </ul></li>
+                <li><a href="#environment"><span class="toc-section-number">5.8</span> Environment</a></li>
+                <li><a href="#general-results"><span class="toc-section-number">5.9</span> General Results</a></li>
+                </ul></li>
+                <li><a href="#conclusion-1"><span class="toc-section-number">6</span> Conclusion</a></li>
+                <li><a href="#appendix-1-107-labels">Appendix 1: 107 Labels</a></li>
+                <li><a href="#appendix-2-500-labels">Appendix 2: 500 Labels</a></li>
+                <li><a href="#references">References</a></li>
+                </ul>
+            </div>
+                                <!--
+This is the Latex-heavy title page.
+People outside UCL may want to remove the header logo
+and add the centred logo
+-->
+
+<!-- This page is for an official declaration. -->
+<p> </p>
+<p> </p>
+<h1 id="abstract" class="unnumbered">Abstract</h1>
+<!-- This is the abstract -->
+<p>As the amount of data we generate every day grows heavily, companies, organizations and even individuals end up gathering more and more data into (very) large collections. One special case of data collections is image datasets. Images are indeed a particular kind of data that is poorly structured compared to time series or document corpuses for example. That lack of structure makes image collections very hard to explore as such. To overcome this, images should have structured annotations e.g. what is represented on it and its localization. In this thesis, we investigate how machine learning algorithms can help in doing these exact annotations. Especially, we want to take advantage of deep learning which has shown significant improvements in computer vision tasks in the recent years. Applications we will consider include large image collection visualization, image classification, object localization and clustering. We will address the particular case of working with images that may have noisy labels. Specifically, we will see how bagging algorithms help training models although part of the labels are wrong, and also how we can use these models to highlight images concerned by label errors. Thanks to this, we hope providing keys for enriching and cleaning image collections.</p>
+<p> </p>
+<h1 id="acknowledgements" class="unnumbered">Acknowledgements</h1>
+<!-- This is for acknowledging all of the people who helped out -->
+<p>I would like to thank :</p>
+<ul>
+<li><p>Mr. Augustin Lafanechère, Data Engineer at Equancy, for helping me finding this internship opportunity at Equancy.</p></li>
+<li><p>Mr. Koby Karp, Data Science Lead at Equancy, for trusting me as an intern, and for his numerous tips on all machine learning related topics.</p></li>
+<li><p>Mr. Denis Amselem, Senior Manager at Equancy, for his regular and detailed advice on how to handle general computer science projects.</p></li>
+<li><p>Mr. Hervé Mignot, Partner at Equancy, for his interest in deep learning, and for the R&amp;D initiative at Equancy which enabled me to work on a very interesting topic.</p></li>
+<li><p>Mr. Martin Jaggi, Tenure-track assistant professor at EPFL, also supervisor of my thesis, for his regular and always quick feedbacks on my works. I would like to thank him for his support.</p></li>
+<li><p>Mr. Hagop Boghazdeklian, Data Science Intern at Equancy, without whom I would maybe not have encountered XGBoost, and definitely would not have had as much pleasure as I had working at Equancy. I would like to thank him for the significant contributions he has had in this thesis.</p></li>
+</ul>
+<p>Finally and without hesitation I would like to thank my father to whom this thesis is dedicated for his belief in me being a good investment ...</p>
+
+
+
+
+<!--
+For me, this was the only drawback of writing in Markdown: it is not possible to add a short caption to figures and tables. This means that the \listoftables and \listoffigures commands will generate lists using the full titles, which is probably isn't what you want. For now, the solution is to create the lists manually, when everything else is finished.
+
+# List of figures {.unnumbered}
+
+Figure 4.1  This is an example figure . . .              \hfill{pp}  
+Figure x.x  Short title of the figure . . .              \hfill{pp}  
+-->
+
+<p> </p>
+
+<!--
+For me, this was the only drawback of writing in Markdown: it is not possible to add a short caption to figures and tables. This means that the \listoftables and \listoffigures commands will generate lists using the full titles, which is probably isn't what you want. For now, the solution is to create the lists manually, when everything else is finished.
+
+# List of tables {.unnumbered}
+
+Table 5.1  This is an example table . . .               \hfill{pp}  
+Table x.x  Short title of the figure . . .              \hfill{pp}  
+-->
+
+<h1 id="abbreviations" class="unnumbered">Abbreviations</h1>
+
+
+<p> </p>
+<h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
+<!--
+After the introductory chapter, it seems fairly common to
+include a chapter that reviews the literature and
+introduces methodology used throughout the thesis. but de la these/chp/chp/question
+two datasets (rcr, wine)
+-->
+<p>Mobile data traffic has grown 18-fold over the past 5 years, and reaches today a monthly value of 11 Exabytes (EB). Forecasts say it will keep rising, eventually reaching 49 EB by 2021. <span class="citation">(Cisco 2017)</span>. Medias (videos / images) account today for more than 60 percent of this total traffic, and that part will keep growing in the next years. These figures underline the need for methods capable of handling large media collections like image or video collections. In this thesis, we focus on images.</p>
+<p>First, Chapter 2 recalls how images are represented by computers, and precises why these representations are insufficient when one wants to explore and query image collections e.g. in relational databases. This will naturally lead us to a general review of Deep Learning and Machine Learning algorithms for Computer Vision problems.</p>
+<p>In Chapter 3 (Project 1), we provide a first experiment of algorithms for multi label classification and localization on a personal dataset of 17 different racing cars. Outcomes include leveraging a classification network (Fully Convolutional Neural Networks) for unsupervised localization and a full methodology for supervised localization.</p>
+<p>Chapter 4 focuses on approaches to consider when dealing with noisy labels in a training dataset. Strategies like bootstrap aggregating (bagging) will be shown to be robust to noise, which will serve as a theoretical support for Chapter 5 (Project 2).</p>
+<p>Chapter 5 (Project 2) describes a full use-case with a company's internal image collection gathering wide variety of contents ranging from product advertising to event photographies. Some of these images already have labels, but the company complained that they were noisy. The scope of that project is thus to find these errors and correct them, while also deploying deep learning models to the images that are not labeled yet. This project will confirm Chapter 4's insight on bagging's efficiency when learning on noisy labels.</p>
+<p>Thanks to these steps, we hope providing theoretical and practical keys for both enriching and cleaning image collections using Deep Learning.</p>
+<h1 id="background"><span class="header-section-number">2</span> Background</h1>
+<p>In this part, we will start by explaining how images are seen by computers. Because they are the core of Deep Learning, we will then focus on introducing Neural Networks (NNs), and give the main components of the particular Convolutional NNs (CNNs) that showed great successes in Computer Vision tasks. We will give intuitions on why these models perform so well, and also how to use transfer learning.</p>
+<h2 id="images-a-special-kind-of-data"><span class="header-section-number">2.1</span> Images, a special kind of data</h2>
+<p>In this part, we start by reminding how computers represent images and argue how these representations, taken as such, have little structure. We precise now that <em>structure</em> refers to information with a high degree of organization, such that inclusion in a relational database is seamless and readily searchable by simple, straightforward search engine algorithms or other search operation <span class="citation">(BrightPlanet 2012)</span>.</p>
+<h3 id="unstructured-data"><span class="header-section-number">2.1.1</span> Unstructured data</h3>
+<p>An image is a very particular kind of data with no easy structure on which a user can query. Say we consider an image of size <span class="math inline">\(800\)</span> x <span class="math inline">\(600\)</span>, then this picture has <span class="math inline">\(800\cdot600 = 480&#39;000\)</span> pixels. Suppose further that each pixel represents the intensity values for the three colors Red, Green and Blue (RGB), then that means an image is a 3 dimensional matrix with <span class="math inline">\(480&#39;000\cdot 3 = 1&#39;440&#39;000\)</span> values.</p>
+<p>These values contain color intensities and are sorted according to spatial constraints, but they're not structured in the sense that we consider. Databases that would store images directly are rare. At most, they keep a link to the original file but there's nothing to retrieve out of the intensity values described above.</p>
+<h3 id="from-unstructured-to-structured-data"><span class="header-section-number">2.1.2</span> From unstructured to structured data</h3>
+<p>Since an image is poorly structured by itself, put together, raw images have even less value unless additional information is added. What is the additional information that is missing ? What could be the ideal structured information for an image ?</p>
+<p>An image can be described by a lot of things. Say we consider the image in Figure  :</p>
+<div class="figure">
+<img src="source/figures/epfl_view.jpg" alt="EPFL Campus from the sky, © Alain Herzog, 2015 " style="width:50.0%" />
+<p class="caption">EPFL Campus from the sky, © Alain Herzog, 2015 </p>
+</div>
+<p>A few descriptors of that image include :</p>
+<ul>
+<li>Objects that are present in the image (<code>building, water, mountain, road, sky</code>)</li>
+<li>Relative positions of these objects as bounding boxes or masks</li>
+<li>Scene descriptors of the image (<code>aerial view, scenery</code>)</li>
+<li>Color descriptors (<code>blueish, green</code>)</li>
+<li>...</li>
+</ul>
+<p>So that ideally one can represent an image into something like :</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">{
+  <span class="st">&quot;objects&quot;</span>: [<span class="st">&quot;building&quot;</span>, <span class="st">&quot;water&quot;</span>, <span class="st">&quot;mountain&quot;</span>, <span class="st">&quot;road&quot;</span>, <span class="st">&quot;sky&quot;</span>],
+  <span class="st">&quot;bounding_boxes&quot;</span>: [...],
+  <span class="st">&quot;scenes&quot;</span>: [<span class="st">&quot;aerial view&quot;</span>, <span class="st">&quot;scenery&quot;</span>],
+  <span class="st">&quot;colors&quot;</span>: [<span class="st">&quot;blueish&quot;</span>, <span class="st">&quot;green&quot;</span>]
+}</code></pre></div>
+<p>Let us call this step of adding additional information <em>labeling</em>.</p>
+<h3 id="limits-of-manual-task-force"><span class="header-section-number">2.1.3</span> Limits of manual task force</h3>
+<p>Labeling an image is something humans can handle very well because most of our brains can do it 20 times per second. We are indeed always consciously or unconsciously keeping our minds aware of what is around us through a frequent evaluation of our surroundings. But labeling thousands, millions of images can quickly become time-consuming although modern interfaces make it more and more efficient, e.g. LabelMe <span class="citation">(Torralba et al. 2010)</span>.</p>
+<p>Also, handling labels manually may lead to errors, lack of exhaustivity or lack of impartiality. On the previous picture, maybe someone would not have mentioned <code>road</code> because it was not present enough in his eyes.</p>
+<p>More generally, if numerous labelers work on labeling an image set, there are high chances that without precise guidelines, they will not be consistent between each-other. A great example of manual labeling and its limits are described in the story <em>What I learned from competing against a ConvNet on ImageNet</em> <span class="citation">(Karpathy 2014)</span>.</p>
+<h3 id="computer-vision-algorithms-to-the-rescue"><span class="header-section-number">2.1.4</span> Computer Vision algorithms to the rescue</h3>
+<p>We have underlined the weaknesses of image representations in providing information with a high degree of organization, but also sketched what could be a solution : annotated objects representing the semantics of images (objects, positions, scenes, colors, ...). These annotations, although could be easily done by a human, are hardly scalable when talking of thousands, millions of pictures. Manual labeling may also have drawbacks because of consistency issues, or biases.</p>
+<p>Computer Vision deals with how computers can be made for gaining high-level understanding from digital images. Ideally, we want to develop algorithms that take images as inputs and predict exactly the structured output seen in part 1.2.2.1.</p>
+<h2 id="neural-networks"><span class="header-section-number">2.2</span> Neural Networks</h2>
+<p>Developing NNs theories was initially motivated by the desire to model biological neural interactions in the brain. That is why we judge interesting to use this root as an introduction to defining NNs.</p>
+<p>In our brains, neurons are the basic computational unit. Neurons send signals (messages) to other neurons that are either <em>excitory</em> or <em>inhibitory</em>. When signals are of type excitory, they will lead the recipient neuron to <em>fire</em> i.e. sending a spike along its axon and transmit forward the signal towards other neurons <span class="citation">(Karpathy)</span>. If the signals are inhibitory, then the signal will stop spreading.</p>
+<h3 id="perceptrons"><span class="header-section-number">2.2.1</span> Perceptron(s)</h3>
+<p>That basic computational unit of the brain, the neuron, is modeled by ANNs using perceptrons <span class="citation">(Rosenblatt 1957)</span> (alternatively called units or neurons).</p>
+<p>A perceptron looks like the following :</p>
+<div class="figure">
+<img src="./source/figures/perceptron.png" alt="A perceptron, as introducted by F. Rosenblatt in 1957" style="width:50.0%" />
+<p class="caption">A perceptron, as introducted by F. Rosenblatt in 1957</p>
+</div>
+<p>The perceptron indeed captures the idea that a message, here the input data <span class="math inline">\(x_i, i=1 .. n\)</span> is being transmitted through a processing unit (a weighted combination with weights <span class="math inline">\(w_{i}, i=1 .. n\)</span>, the transfer function <span class="math inline">\(\Sigma\)</span> and activation function <span class="math inline">\(\phi\)</span>), such that a decision (the output) can be made.</p>
+<p>Please note that usually, the transfer function <span class="math inline">\(\Sigma\)</span> is a simple weighted sum, i.e. :</p>
+<p><span class="math display">\[\Sigma(x_1, x_2, ... , x_n) = \sum_{i=1}^{i=n} w_{i} \cdot x_i + b_i\]</span></p>
+<p>The offsets <span class="math inline">\(b_i\)</span> are not in the figure but they are just a special case of weights. The activation function <span class="math inline">\(\phi\)</span> is a non-linear function, and we'll see examples of them right after.</p>
+<p>The output of this model is thus : <span class="math display">\[z = \phi \big( \sum_{i=1}^{i=n} w_{i} \cdot x_i + b_i \big)\]</span></p>
+<p>The weights <span class="math inline">\(w_{i}\)</span> are the usual target variable we optimize on. Indeed, just like for a linear regression, we want to find the weights that minimize a loss (also known as error function).</p>
+<p>Although the perceptron by itself is already a model, usual NNs will combine many of these together in <span class="math inline">\(layers\)</span>. Indeed, many neurons can be assembled together into one layer, such that the model now looks like in Figure .</p>
+<div class="figure">
+<img src="./source/figures/1layer.png" alt="One hidden-layer Neural Network " style="width:50.0%" />
+<p class="caption">One hidden-layer Neural Network </p>
+</div>
+<p>Please note that neuron layers are often referred as <em>hidden</em> layers, to emphasize the difference between the input and output layers. So the network of Figure  has exactly 1 hidden layer. Adding neurons lead to more complex models, which enable to capture more information in the input data. Complexity can also be added by feeding a layer as input to another layer, resulting in two layers, as in Figure .</p>
+<div class="figure">
+<img src="./source/figures/2layers.png" alt="Two hidden-layers Neural Network " style="width:70.0%" />
+<p class="caption">Two hidden-layers Neural Network </p>
+</div>
+<p>It is time to introduce the <em>Multi-Layer Perceptron (MLP)</em> models. They are fully connected neural networks with multiple hidden layers. The network designed in Figure  is exactly a MLP, the least deep MLP (two hidden-layers). Please note that the number of neurons per layer has been fixed to <span class="math inline">\(n\)</span> in our examples for simplicity sake that is a parameter.</p>
+<p>Growing the number of neurons per layer, and the number of layers eventually enable the network to learn on more complex data, but the number of parameters quickly rises too. And that is something to take into account when choosing or designing architectures.</p>
+<h3 id="activation-functions"><span class="header-section-number">2.2.2</span> Activation functions</h3>
+<p>We did not elaborate yet on the usefulness of activation functions, but they are of course crucial in the design of NNs. First, there are multiple activation functions. These functions must be <em>non-linear</em>, in order to capture complex transformations on the initial data. Suppose you chose <span class="math inline">\(\phi(\mathbf{X}) = \lambda \cdot \mathbf{X}\)</span> then all you're doing is basically a standard linear regression / classification. So introducing NNs makes sense if these functions are non-linear. Usually, we choose the same activation function across all the network. <span class="citation">(Urbanke 2016)</span></p>
+<p>Two very usual activation functions are</p>
+<ul>
+<li>Sigmoid : <span class="math inline">\(sigmoid(x) = \frac{1}{1+e^{-x}}\)</span></li>
+<li>Rectified Linear Unit (ReLU) : <span class="math inline">\(relu(x) = max(0,x)\)</span></li>
+</ul>
+<p>Sigmoid is the traditional activation function introduced with NNs because it pushes the analogy with neurons even further. Indeed, because <span class="math inline">\(sigmoid(\cdot)\)</span> maps values into the interval <span class="math inline">\([0, 1]\)</span> and has a tendency to push towards 0 or 1, this mimics even more the behavior of neurons that either fire or inhibit.</p>
+<p>ReLU, on the other side, has become very popular after researchers figured out it had advantages like:</p>
+<ul>
+<li>inducing sparsity in the hidden neurons <span class="citation">(Zeiler et al. 2013)</span></li>
+<li>accelerating the convergence of stochastic gradient descent by 6 <span class="citation">(Krizhevsky et al. 2012)</span></li>
+</ul>
+<p>But looking for adapted activation functions is a research field by itself. For example, a new activation function called Scaled Exponential Linear Unit (SeLU) <span class="citation">(Klambauer et al. 2017)</span> has recently been published, that enables weights to stay under zero mean and unit variance constraints. Thanks to such an activation, maybe normalization layers (e.g. Batch Normalization <span class="citation">(Ioffe &amp; Szegedy 2015)</span>) are no longer needed because the network by itself handles the normalization process.</p>
+<h3 id="learning"><span class="header-section-number">2.2.3</span> Learning</h3>
+<p>Let's discuss a little on how NNs can learn. We don't intend to present all the details but rather a high-level vision where learning components are underlined, in order to understand the ins and outs of making a Neural Network learn.</p>
+<p>Traditional Machine Learning algorithms always have a goal (e.g. classification, regression) and will thus be given a training and test set, from which they'll train to minimize a given loss function. That loss should be a great measure of the performance on the asked task. For example, the Root Mean Square Error (RMSE) <span class="math inline">\(rmse(y, \hat{y}) = \sum_i \sqrt{(y_i - \hat{y}_i)^2}\)</span> is a great performance measure for regression. It will be minimized when the predictions are, in average, close to the goal.</p>
+<p>So, here with NNs, the purpose is the same, solving an optimization problem. We want to find ways to localize which parameters yield the smallest loss possible. In NNs case, that means finding weights <span class="math inline">\(w_i\)</span> such that the task is doing as good as possible. Conceptually, we want to compute gradients and always go in the opposite direction of the gradients. That is gradient descent. For a given weight to learn <span class="math inline">\(w\)</span>, we will iterate and find <span class="math inline">\(w\)</span> by the following update rule until convergence :</p>
+<p><span class="math display">\[w_{t+1} = w_t - \gamma_t \cdot \nabla_t\]</span></p>
+<p>where <span class="math inline">\(\nabla_t\)</span> is the gradient at time <span class="math inline">\(t\)</span> and <span class="math inline">\(\gamma_t\)</span> the learning rate .</p>
+<p>First, <em>backpropagation</em> is the algorithm that enables to compute all the derivatives involved in the gradient calculations more efficiently. It is decomposed in two phases :</p>
+<ul>
+<li>Feedforward pass : when the training data is fed to the network and goes over all the neurons, the error is computed</li>
+<li>Backward propagation : the error signal is transmitted back through the network and the weights are optimized using gradient descent.</li>
+</ul>
+<p>Now, spaces of losses with millions of parameters may have multiple local minimas and are definitely not convex. Just like for activations, there is still an active research on developing strategies to better explore the parameters space in order to find stable solutions quickly. That means strategies to better adapt the learning rate <span class="math inline">\(\gamma\)</span> when doing gradient descent. These strategies are referred to as <span class="math inline">\(optimizers\)</span>. For example, stochastic gradient descent (SGD) is an optimizer.</p>
+<p>For NNs, new optimizers are frequently introduced including Adagrad <span class="citation">(Duchi et al. 2010)</span>, RMSProp <span class="citation">(Tieleman &amp; Hinton 2012)</span>, Adadelta <span class="citation">(Zeiler 2012)</span>, to name only a few. Performances comparisons can be compared below in Figure  for two particular settings : a long valley (left) and a settle point (right). In a long valley, Adadelta takes the lead while in a settle point case, both Adagrad and Rmsprop are quickly finding their ways. The initial visualizations are animated and findable <a href="http://imgur.com/a/Hqolp">here (click)</a> (Alec Radford, 2015)</p>
+<div class="figure">
+<img src="./source/figures/optimizers_both.png" alt="Optimizers races in (left) a long valley or (right) a settle point " style="width:80.0%" />
+<p class="caption">Optimizers races in (left) a long valley or (right) a settle point </p>
+</div>
+<p>Below is an other optimizer, Adam <span class="citation">(Kingma &amp; Ba 2014)</span>, that accelerates the wall-clock time and reduced the number of iterations. Figure  indeed shows that Adam outperforms the other optimizers in reducing the training cost-function (i.e loss) of a MLP with two fully connected hidden layers with 1000 hidden units each and ReLU activation. The dataset is the MNIST (handwritten digits dataset) and the task is classification.</p>
+<div class="figure">
+<img src="./source/figures/adam.png" alt="Adam, a popular optimizer  (Kingma &amp; Ba 2014)" style="width:50.0%" />
+<p class="caption">Adam, a popular optimizer  <span class="citation">(Kingma &amp; Ba 2014)</span></p>
+</div>
+
+
+<h3 id="strength-1-representation-power"><span class="header-section-number">2.2.4</span> Strength 1 : representation power</h3>
+<p>A fundamental result on NNs was published in <em>Universal approximation bounds for superpositions of a sigmoidal function</em> <span class="citation">(Barron 1993)</span> and is stated as the following :</p>
+<p><strong>Lemma.</strong> Let <span class="math inline">\(f : \mathbb{R}^D -&gt; \mathbb{R}\)</span> be a function such that :</p>
+<p><span class="math display">\[ \int_{\mathbb{R}^D} |w| \cdot |f^{a}(w)|dw \leq C, \]</span></p>
+<p>where</p>
+<p><span class="math display">\[f^{a}(w) = \int_{\mathbb{R}^D} f(\mathbf{x})e^{-jw^{T}\mathbf{x}} d\mathbf{x}\]</span></p>
+<p>is the Fourier transform of <span class="math inline">\(f(\mathbf{x})\)</span>. Then for all <span class="math inline">\(n \geq 1\)</span>, there exists a function <span class="math inline">\(f_n\)</span> of the form :</p>
+<p><span class="math display">\[f_n (\mathbf{x}) = \sum_{j=1}^{n} c_j \phi (\mathbf{x}^T \mathbf{w}_j + b_j) + c_{0}\]</span></p>
+<p>i.e., a function that is representable by a NN with one hidden layer with <span class="math inline">\(n\)</span> neurons and &quot;sigmoid-like&quot; activation so that for <span class="math inline">\(r \in \mathbb{R}\)</span> :</p>
+<p><span class="math display">\[\int_{|\mathbf{X}| \leq r} \big( f(\mathbf{x} - f_n(\mathbf{x}) \big)^2d\mathbf{x} \leq \frac{(2cr)^2}{n}\]</span></p>
+<p>In other words, NNs with only one layer and sigmoid-like activations can already learn any continuous function within a given interval. We can tune the number of neurons <span class="math inline">\(n\)</span> and the interval size <span class="math inline">\(r\)</span> to reach the target approximation (in <span class="math inline">\(L_2\)</span>-norm sense). Of course, the larger the interval <span class="math inline">\(r\)</span>, the more neurons <span class="math inline">\(n\)</span> will be needed in order to keep the same bound (<span class="math inline">\(r\)</span> is at square). <span class="citation">(Urbanke 2016)</span></p>
+<p>A great tutorial to gain intuition on this is <a href="http://neuralnetworksanddeeplearning.com/chap4.html">here, click</a> <span class="citation">(Nielsen 2015)</span>. That fact on NNs is a great strength, and referred as to the representational power of NNs.</p>
+<h3 id="strength-2-feature-extraction-as-part-of-the-learning"><span class="header-section-number">2.2.5</span> Strength 2 : feature extraction as part of the learning</h3>
+<p>When designing traditional ML algorithms, the usage (and challenge) of most models is to handcraft the features that will enable the model to make good decisions.</p>
+<p>We have just seen that NNs could learn any function with an error as low as we want on a given interval. And also that it is possible to optimize and compute its gradients all the way through from the input to the final task (e.g. classification or regression). That means that NNs can learn <em>by themselves</em> what representation to give to the input data in order to maximize the task performance. For NNs, the feature extraction process is done automatically by the model, as part of the learning.</p>
+<p>NNs are even sometimes used exclusively for this feature extraction capability. A very strong illustration of this is <em>word2vec</em> <span class="citation">(Mikolov et al. 2013)</span>. T. Mikolov has introduced the Skip-Gram model which task is to predict the surrounding words in a sentence or a document. And the side effect is that it makes NNs learn very interesting representations of words for that. Indeed, the learned vectors explicitly encode many linguistic regularities and patterns. We will see that this is also true for images : embeddings learnt by CNNs have already a lot of semantic information.</p>
+<h2 id="deep-learning-for-computer-vision"><span class="header-section-number">2.3</span> Deep Learning for Computer Vision</h2>
+<h3 id="deep-learning"><span class="header-section-number">2.3.1</span> Deep Learning</h3>
+<p>We have seen that NNs are made of an input layer, an output layer, and hidden layers. Deep Learning is defined by Y. LeCun as using models that have <em>feature hierarchy</em>. That means NNs that have at least 2 hidden layers <span class="citation">(LeCun et al. 2013)</span>.</p>
+<h3 id="convolutional-nns"><span class="header-section-number">2.3.2</span> Convolutional NNs</h3>
+<p><em>Disclaimer</em> : We decide to introduce Convolutional Neural Networks (CNN) <span class="citation">(LeCun et al. 1998)</span> under the Computer Vision part while this model can also be used for other applications such as natural language processing or audio recognition. The reason we do so is because we'll essentially define it under the Computer Vision scope, insisting on parameters that concern images.</p>
+<p>The Multi-Layer Perceptron seen in last part is one of the many NNs that can be built. Actually, <em>The Azimov Institute</em> made an inventory back in 2016 of existing architectures : they're numerous. One very special architecture is the CNN, that has had a huge impact on Computer Vision in the last years.</p>
+<p>In this part, we will define it, along with the main hyper-parameters and variations it has.</p>
+<h3 id="convolutions"><span class="header-section-number">2.3.3</span> Convolutions</h3>
+<p>The key operation in CNNs is <em>convolution</em>.</p>
+<p>Convolutions are operations that, given an input matrix <span class="math inline">\(X\)</span> and a kernel matrix <span class="math inline">\(K\)</span>, will yield another matrix <span class="math inline">\(\Phi\)</span> that is dependent on the dot-product between a sliding window of <span class="math inline">\(K\)</span> browsing the initial <span class="math inline">\(X\)</span>.</p>
+<p>This is illustrated in Figure  taken from <em>A guide to convolution arithmetic for deep learning</em> <span class="citation">(Dumoulin &amp; Visin 2016)</span> where we can see <span class="math inline">\(X\)</span> in light blue, <span class="math inline">\(\Phi\)</span> in green and the kernel matrix <span class="math inline">\(K\)</span> (dark blue) that browses <span class="math inline">\(X\)</span> (we only display three convolutions out of nine expected).</p>
+
+<p><embed src="./source/figures/numerical_no_padding_no_strides_00.pdf" style="width:30.0%" /> <embed src="./source/figures/numerical_no_padding_no_strides_01.pdf" style="width:30.0%" /> <embed src="./source/figures/numerical_no_padding_no_strides_02.pdf" style="width:30.0%" /></p>
+<div class="figure">
+<img src="./source/figures/white.png" alt="Visualization of a convolution  (Dumoulin &amp; Visin 2016)" />
+<p class="caption">Visualization of a convolution  <span class="citation">(Dumoulin &amp; Visin 2016)</span></p>
+</div>
+<p>Here, <span class="math inline">\(X\)</span> has size <span class="math inline">\((5,5)\)</span>, <span class="math inline">\(K\)</span> has size <span class="math inline">\((3,3)\)</span> and that yields <span class="math inline">\(\Phi\)</span> of size <span class="math inline">\((3,3)\)</span>. Indeed, when considering square inputs <span class="math inline">\(X\)</span>, and square kernels <span class="math inline">\(K\)</span>, we have :</p>
+<p><span class="math display">\[ \text{size}(\Phi) = \text{size}(X) - \text{size}(K) + 1 \]</span></p>
+<p>Depending on the size of the output <span class="math inline">\(\Phi\)</span> we are looking for, we will thus have to adapt the size of the kernel <span class="math inline">\(K\)</span>. Other parameters can help adjusting the sizes of the output <span class="math inline">\(\Phi\)</span> like <em>padding</em>, <em>stride</em> and <em>pooling</em> :</p>
+<ul>
+<li><strong>Padding</strong> is the fact to surround (or not) the initial matrix <span class="math inline">\(X\)</span> by other values in order to enable convolutions with the values in the angle. See Figure .</li>
+<li><strong>Stride</strong> is the number of extra steps used when browsing the initial matrix <span class="math inline">\(X\)</span>. In figure  the stride is 0. But <span class="math inline">\(K\)</span> could move two pixels by two pixels, i.e. stride of 1, changing the output size. See Figure .</li>
+<li><strong>Pooling</strong> is an operation that often follows convolutions. To emphasize this, we will thus say that the input to a pooling operation is a matrix <span class="math inline">\(\Phi\)</span>. Just like convolution, pooling is an operation that browses the input matrix and applies an operation. It is not a dot product this time, but an aggregation. For example, <em>max-pooling</em> or <em>average pooling</em> are popular pooling methods. They just select, for each window, respectively the <em>max</em> or <em>average</em> value. See Figure . This has as a side-effect to reduce the output size (thus the number of parameters when learning), and also to avoid overfitting because some details are disregarded.</li>
+</ul>
+<p><embed src="./source/figures/arbitrary_padding_no_strides_transposed_00.pdf" style="width:30.0%" /> <embed src="./source/figures/arbitrary_padding_no_strides_transposed_01.pdf" style="width:30.0%" /> <embed src="./source/figures/arbitrary_padding_no_strides_transposed_02.pdf" style="width:30.0%" /></p>
+<div class="figure">
+<img src="./source/figures/white.png" alt="Padding = 1  (Dumoulin &amp; Visin 2016)" />
+<p class="caption">Padding = 1  <span class="citation">(Dumoulin &amp; Visin 2016)</span></p>
+</div>
+<p><embed src="./source/figures/padding_strides_00.pdf" style="width:30.0%" /> <embed src="./source/figures/padding_strides_01.pdf" style="width:30.0%" /> <embed src="./source/figures/padding_strides_02.pdf" style="width:30.0%" /></p>
+<div class="figure">
+<img src="./source/figures/white.png" alt="Padding = Stride = 1  (Dumoulin &amp; Visin 2016)" />
+<p class="caption">Padding = Stride = 1  <span class="citation">(Dumoulin &amp; Visin 2016)</span></p>
+</div>
+<p><embed src="./source/figures/numerical_average_pooling_00.pdf" style="width:50.0%" /> <embed src="./source/figures/numerical_max_pooling_00.pdf" style="width:50.0%" /></p>
+<div class="figure">
+<img src="./source/figures/white.png" alt="Max-pooling (left), average-pooling (right)  (Dumoulin &amp; Visin 2016)" />
+<p class="caption">Max-pooling (left), average-pooling (right)  <span class="citation">(Dumoulin &amp; Visin 2016)</span></p>
+</div>
+<h3 id="feature-maps"><span class="header-section-number">2.3.4</span> Feature maps</h3>
+<p>As we have seen in Part 2.1.5, NNs have the capability of learning their features, i.e. in the CNN case, that means learning the kernels. For images, it is very interesting to visualize which kernels were learnt, as they highlight what patterns the NN learns to look for, in order to help classifying or doing the asked ML task.</p>
+<p>In the paper <em>Visualizing and Understanding Convolutional Neural Networks</em> <span class="citation">(Zeiler &amp; Fergus 2014)</span>, researchers trained a CNN with 8 layers and observed that the feature maps get more and more complex as we look into deeper layers. Their original results are in Figure . That means there is a feature hierarchy : the first layers show feature maps that look for simple patterns (edges, diagonals, ...) while deeper layers will start looking for curves, textures, and eventually animals, then species on images.</p>
+<div class="figure">
+<img src="./source/figures/viz_cnn.png" alt="Feature maps for every layer of a CNN  (Zeiler &amp; Fergus 2014)" />
+<p class="caption">Feature maps for every layer of a CNN  <span class="citation">(Zeiler &amp; Fergus 2014)</span></p>
+</div>
+<h3 id="transfer-learning"><span class="header-section-number">2.3.5</span> Transfer learning</h3>
+<p>A large-scale hierarchical image database <em>ImageNet</em> (15 million images) was released in 2009. It is annotated with labels describing the content of the images, e.g. Husky or sky. This dataset came with a competition called ImageNet Large Scale Visual Recognition Challenge (ILSVRC) <span class="citation">(Russakovsky et al. 2014)</span> that quickly became the benchmark for object recognition and object detection.</p>
+<p>The number of images it represents is significantly bigger than previous datasets e.g. SUN <span class="citation">(Xiao et al. 2010)</span> with 131K images and has shown how the amount of training data could influence the performance on vision tasks. Actually, it was even stated that performance on vision tasks increase linearly with orders of magnitude of training data size i.e. proportionally to <span class="math inline">\(log(N)\)</span> where <span class="math inline">\(N\)</span> is the dataset size. <span class="citation">(Sun et al. 2017)</span></p>
+<p>Every year at ILSVRC, researchers are pushing forward the performances of CV algorithms by training deeper and/or wider and/or more complex NNs. What is great is that they release the weights of their models, making them usable for free. For example models like VGG-16, ResNet, AlexNet, Inception...</p>
+<p>We can use them for doing exactly what they were designed for i.e. classification or localization among ImageNet classes, but we have seen that one power of NNs is the automatic feature learning, and also that it is hierarchical. Thanks to the diversity of images in ImageNet, models that are trained on that dataset have acquired a very valuable knowledge that one can leverage to do other tasks. That's exactly <em>transfer learning</em>.</p>
+<p>For example, if we have a new dataset and wish to learn a classifier on it, we can use what pre-trained models <em>know</em> (in term of image representation) as a starting point for further learning. And then several options exist, including :</p>
+<ul>
+<li>re-train some of the layers (<em>fine-tuning</em>) in order to update the weights for the new task</li>
+<li>append new layers and train them</li>
+<li>use the pre-trained model as a feature extractor and then try traditional Machine Learning models.</li>
+</ul>
+<p>In this thesis, we will have the opportunity to try all these three methods.</p>
+<h3 id="overfitting"><span class="header-section-number">2.3.6</span> Overfitting</h3>
+<p>A common trap in Machine Learning is to overfit. There is a toolbox to keep in mind when facing overfitting issues with NN and we describe it below :</p>
+<p><strong>Add more data</strong>. In the special case of Computer Vision, when looking for tasks like classification or localization, it is quite straightforward to think of how one could artificially enlarge its training set. If an image represents a cat, then that same image with a rotation still does. But that rotated image looks like a new data sample for an algorithm. So out of one training picture, one can make many examples for the model to learn. That's <em>data augmentation</em>. Other transformations can be considered e.g. changing colors, smart cropping, symmetries...</p>
+<p><strong>Regularization</strong>. A good practice when doing ML is to avoid weights of the model to grow too much, and get too complex. Because this complexity is often a sign of overfitting : with heavy weights, models get very sensitive to minor changes in the training data. Usually, regularizations appear as components of the <em>loss function</em>, <span class="math inline">\(L(\mathbf{X},w)\)</span>, that very same function we try to optimize. Usually we change <span class="math inline">\(L(\mathbf{X},w)\)</span> into regularized loss <span class="math inline">\(L_r(\mathbf{X},w)\)</span> in this manner :</p>
+<p><span class="math display">\[L_{r}(\mathbf{X},w) = L(\mathbf{X},w) + R(w)\]</span></p>
+<p>where <span class="math inline">\(R(w)\)</span> is the regularization term, that is of the form <span class="math inline">\(\lambda \cdot N_{1,2}(w)\)</span>, <span class="math inline">\(N_{1,2}\)</span> is either the norm 1 or norm 2 and <span class="math inline">\(\lambda\)</span> is a parameter to tune.</p>
+<p><strong>Dropout</strong>. Dropout layers <span class="citation">(Srivastava et al. 2014)</span> have been shown to prevent overfitting. The key idea is to randomly drop neurons and the links they have from the NN when training. This prevents over-specifying.</p>
+<h3 id="applications"><span class="header-section-number">2.3.7</span> Applications</h3>
+<p>In this section we wish to highlight a few key ideas on the two applications we will address : image classification and image localization.</p>
+<h4 id="classification"><span class="header-section-number">2.3.7.1</span> Classification</h4>
+<p>We will study models for classification :</p>
+<p><strong>Definition</strong>. <em>Classification</em> : task of identifying to which of a set of categories (sub-populations) a new observation belongs.</p>
+<p>Classification can either be single label (only one category possible) or multi label (0 or more category). For NNs, these are two different models.</p>
+<p>Suppose the set of possible categories is denoted <span class="math inline">\(C = \{c_i\}\)</span> for <span class="math inline">\(i=1...|C|\)</span> where <span class="math inline">\(|C|\)</span> is the number of categories.</p>
+<ul>
+<li>Single label classifiers : they usually have a final classifier layer like <span class="math inline">\(softmax\)</span> of size <span class="math inline">\(|C|\)</span>. that maps all values into the interval <span class="math inline">\([0, 1]\)</span>, such that for all categories <span class="math inline">\(c_i\)</span>, the associated outputs <span class="math inline">\(z_i\)</span> verify :</li>
+</ul>
+<p><span class="math display">\[
+\begin{cases}
+0 \leq z_i \leq 1 &amp; \\\\
+\sum_{i=1}^{|C|} z_i = 1 &amp;
+\end{cases}
+\]</span></p>
+<p>Using <span class="math inline">\(softmax\)</span> thus has the effect of giving a probability-like density as output. It will try to find the one very <em>best</em> class and push its <em>probability</em> high.</p>
+<ul>
+<li>Multi label classifiers : because we want to potentially have multiple labels, we can't use the <span class="math inline">\(softmax\)</span> function as before. We rather choose <span class="math inline">\(sigmoid\)</span> function already introduced before and learn in a <em>One-Versus-All</em> fashion, such that each class has its own binary classifier, classifying <span class="math inline">\(c_i\)</span> versus <span class="math inline">\(C \setminus \{c_i\}\)</span>.</li>
+</ul>
+<h4 id="localization"><span class="header-section-number">2.3.7.2</span> Localization</h4>
+<p><strong>Definition</strong>. <em>Localization</em> : task of classifying along with localizations.</p>
+<p>Localizations can be two-folds :</p>
+<ul>
+<li>bounding boxes : rectangular zones that should contain the expected class</li>
+<li>masks : every pixel is classified, yielding to a more precise localization, respecting the object shapes.</li>
+</ul>
+<p>Approaches for localization include <strong>Faster R-CNN</strong> <span class="citation">(Ren et al. 2015)</span> and <strong>SSD</strong> <em>(Single Shot MultiBox Detector)</em> <span class="citation">(Liu et al. 2016)</span>.</p>
+<p>These methods have different strategies, different feature extractors etc. which make it hard to establish exactly which one to choose. In the paper <em>Speed/accuracy trade-offs for modern convolutional object detectors</em> <span class="citation">(Huang et al. 2016)</span>, researchers investigated on the performances of Fast R-CNN vs that of SSD, especially with common feature extractors and always taking into account the speed of predictions.</p>
+<p>The take-away messages are :</p>
+<ul>
+<li>SSD is very stable regarding the feature extractor (VGG-16 vs ResNet vs MobileNet)</li>
+<li>Faster R-CNN can be made faster if less proposal regions are used, while preserving a high accuracy.</li>
+</ul>
+<p>In this thesis, we will use SSD as it is reported as faster, and has a nice implementation in Keras <a href="https://github.com/pierluigiferrari/ssd_keras">here</a>.</p>
+<p>We will also see how fully convolutional neural networks (NNs with only convolutional layers) can be used in order to perform unsupervised localization.</p>
+<h2 id="other-traditional-ml-models"><span class="header-section-number">2.4</span> Other traditional ML models</h2>
+<p>The other Machine Learning models that will be used in this report are XGBoost <span class="citation">(Chen &amp; Guestrin 2016)</span>, Random Forests <span class="citation">(Breiman &amp; Schapire 2001)</span>, SVM <span class="citation">(Cortes &amp; Vapnik 1995)</span> and ML-kNN <span class="citation">(Szymański &amp; Kajdanowicz 2017)</span></p>
+<h1 id="project-1-race-car-recognition"><span class="header-section-number">3</span> Project 1 : Race Car Recognition</h1>
+<h2 id="introduction-1"><span class="header-section-number">3.1</span> Introduction</h2>
+<p>In this first project, we use a personal dataset consisting of 1127 pictures that represent 17 different race cars. The cars are all Renault 4L but they differ in their decorations (although they can have same colors) or at least in their bib numbers (the cars identifiers) or license plates.</p>
+<h2 id="classification-1"><span class="header-section-number">3.2</span> Classification</h2>
+<p>We start by building a classifier using a Full Convolutional Neural Network (FCNN) We apply transfer learning from VGG-16 cut from its last convolutional layers, and then we append the following layers (Keras verbose) :</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">BatchNormalization(axis<span class="op">=</span><span class="dv">1</span>, input_shape<span class="op">=</span>conv_layers[<span class="op">-</span><span class="dv">1</span>].output_shape[<span class="dv">1</span>:]),
+Convolution2D(<span class="dv">128</span>,<span class="dv">3</span>,<span class="dv">3</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, border_mode<span class="op">=</span><span class="st">&#39;same&#39;</span>),
+BatchNormalization(axis<span class="op">=</span><span class="dv">1</span>),
+Convolution2D(<span class="dv">128</span>,<span class="dv">3</span>,<span class="dv">3</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, border_mode<span class="op">=</span><span class="st">&#39;same&#39;</span>),
+BatchNormalization(axis<span class="op">=</span><span class="dv">1</span>),
+Convolution2D(<span class="dv">128</span>,<span class="dv">3</span>,<span class="dv">3</span>, activation<span class="op">=</span><span class="st">&#39;relu&#39;</span>, border_mode<span class="op">=</span><span class="st">&#39;same&#39;</span>),
+BatchNormalization(axis<span class="op">=</span><span class="dv">1</span>),
+Convolution2D(<span class="dv">17</span>,<span class="dv">3</span>,<span class="dv">3</span>, border_mode<span class="op">=</span><span class="st">&#39;same&#39;</span>),
+GlobalAveragePooling2D(),
+Activation(<span class="st">&#39;softmax&#39;</span>)</code></pre></div>
+<p>One can read that there are 128 neurons per layer, with <span class="math inline">\((3,3)\)</span> filter shapes. Activation function is ReLU, and the border mode (padding) is <em>same</em> which means the output should be of the same size as the input, so there's a padding of one.</p>
+<p>The last convolutional layer has as many filters as the number of classes. We use <em>Adam</em> Optimizer with an initial learning rate of 0.01, and divide it by 10 every 10 epochs. That leads to 94 % accuracy in 30 epochs.</p>
+<h3 id="localization-1"><span class="header-section-number">3.2.1</span> Localization</h3>
+<h4 id="unsupervised-fcnn"><span class="header-section-number">3.2.1.1</span> Unsupervised (FCNN)</h4>
+<p>The interesting thing about having a fully convolutional architecture, is that the last convolutional layer with size 17 actually contains spatial information on where the FCNN <em>activated</em> i.e. found pixels interesting for the classification task. So assuming the FCNN predicts car number 12 on an image, we can plot the 12th feature map of the last layer on top of the image and that leads to a quite neat localization. This localization is obtained only from the classification task, it is thus unsupervised localization. See Figure </p>
+<div class="figure">
+<img src="./source/figures/heatmap.png" alt="Visualizing one heatmap " style="width:50.0%" />
+<p class="caption">Visualizing one heatmap </p>
+</div>
+<p>We also display results of the heatmaps with confidences of the model on Figure . On the top right image the model outputs the good label. In the bottom-left it fails, maybe because the car is smaller - but in the bottom-right it succeeds.</p>
+<div class="figure">
+<img src="./source/figures/rcr_confidence.png" alt="Results of the heatmaps along with confidences " style="width:100.0%" />
+<p class="caption">Results of the heatmaps along with confidences </p>
+</div>
+<p>This heatmap method is further developed in <em>Deep Learning course</em> <span class="citation">(Ollion 2017)</span> where they show that taking three heatmaps from different sizes and doing a geometric mean of them further improves the precision of the heatmap.</p>
+<p><strong>Cropping the training set and train again to improve</strong></p>
+<p>We infer bounding boxes from heatmaps in order to crop our images and further train the model on the crops. To do this, we filter the pixels in the heatmap by keeping only those with an intensity above 80, and then we select the external pixels as bounding box delimiters. See Figure  for some results.</p>
+<p><img src="./source/figures/heatmap_raw.png" style="width:50.0%" /> <img src="./source/figures/heatmap_bbox.png" style="width:50.0%" /> <img src="./source/figures/heatmap_result.png" style="width:100.0%" /></p>
+<div class="figure">
+<img src="./source/figures/white.png" alt="Inferring bounding boxes from heatmaps " />
+<p class="caption">Inferring bounding boxes from heatmaps </p>
+</div>
+<p>With that applied on all our images, we have now a smart way to crop images on the desired target (cars) and train again. Unfortunately, that didn't lead to significant results in our case.</p>
+<h4 id="supervised-ssd"><span class="header-section-number">3.2.1.2</span> Supervised (SSD)</h4>
+<p>In this part we go over the full process of developing a localization model.</p>
+<h5 id="manual-labeling"><span class="header-section-number">3.2.1.2.1</span> Manual labeling</h5>
+<p>We used RectLabel <span class="citation">(ryouchinsa)</span> to manually label 50 images from a given car model. We label three things :</p>
+<ul>
+<li>the car</li>
+<li>the license plate</li>
+<li>the bib number</li>
+</ul>
+<h5 id="training"><span class="header-section-number">3.2.1.2.2</span> Training</h5>
+<p>We trained with SSD. Some results are in Figure . Results are very good although we used a small training set. The model was applied on an other car than that of the training one. This is very encouraging.</p>
+<p><img src="./source/figures/rcr_res1.png" style="width:50.0%" /> <img src="./source/figures/rcr_res2.png" style="width:50.0%" /> <img src="./source/figures/rcr_res3.png" style="width:50.0%" /> <img src="./source/figures/rcr_res4.png" style="width:50.0%" /> <img src="./source/figures/rcr_res5.png" style="width:50.0%" /> <img src="./source/figures/rcr_res6.png" style="width:50.0%" /></p>
+<div class="figure">
+<img src="./source/figures/white.png" alt="Results of detections by SSD " />
+<p class="caption">Results of detections by SSD </p>
+</div>
+<h2 id="conclusion"><span class="header-section-number">3.3</span> Conclusion</h2>
+<p>Thanks to this first project, we have seen how FCNNs can be used both for classification and unsupervised localization. With only very few data, one can also decide to train a proper supervised localization algorithm like SSD with very good results very quickly.</p>
+<h1 id="data-quality"><span class="header-section-number">4</span> Data Quality</h1>
+<p>In this section, we want to further elaborate on algorithms and methods to leverage when working with noisy data. That will be specifically useful for Project 2.</p>
+<h2 id="definitions"><span class="header-section-number">4.1</span> Definitions</h2>
+<p>In this part, we strongly take advantage of the survey on <em>Classification in the Presence of Label Noise</em> <span class="citation">(Frenay &amp; Verleysen 2014)</span> to define precisely what's understood as <em>noise</em>.</p>
+<p>B. Frénay writes that there are two types of noise :</p>
+<ul>
+<li>feature noise : noise that affects the observed values of the features</li>
+<li>label noise : when some observed labels are incorrect</li>
+</ul>
+<p>It is interesting to highlight that label noise may be more harmful than feature noise <span class="citation">(Zhu &amp; Wu 2004)</span>, which can intuitively be justified by the fact that there are many features while there's only one label. And label's impact on learning is always very significant, whereas some features are sometimes only weakly correlated with the output, so altering them doesn't cause too much pain.</p>
+<p>Just like in B. Frénay's report, we will assume labelling errors to be independent from each other, and not intentional or maliciously added. Label errors happen when humans are involved for labeling, and the reasons of that include :</p>
+<ol style="list-style-type: decimal">
+<li>The expert responsible for labeling was not provided sufficient information to perform reliable labelling</li>
+<li>The expert makes a mistake</li>
+<li>The labelling task is subjective</li>
+<li>There has been data encoding or communication problems.</li>
+</ol>
+<p>Approaches to deal with label-noise are (1) using models that are robust to it, (2) trying to filter problematic noisy labels and train on a cleaned dataset, (3) explicitly modeling the noise at training time.</p>
+<p>We will use both (1) and (2) in this report, in what we refer to as a <em>Data Quality</em> framework that should at the same time be robust to noise and also highlight the errors.</p>
+<h2 id="bootstrap-aggregating-for-noise-robustness"><span class="header-section-number">4.2</span> Bootstrap aggregating for noise-robustness</h2>
+<p>A popular method for being robust to label errors is <em>bootstrap aggregating (bagging)</em> <span class="citation">(Reed et al. 2014)</span>, <span class="citation">(Xiao et al. n.d.)</span> which is a particular case of <em>ensembling</em>. In this part we will thus recall what is ensembling, and define bagging. We will also illustrate with a random dataset how bagging is the best solution to handle noisy labels.</p>
+<h3 id="ensembling"><span class="header-section-number">4.2.1</span> Ensembling</h3>
+<p>Ensembling is a method in Machine Learning when <span class="math inline">\(m \geq 2\)</span> models are learnt out of different training sets, all coming from the initial dataset. These models are then combined by a combiner model. In practice, this combiner model can also just do an aggregation of the predictions from the previous <span class="math inline">\(m\)</span> models (e.g average). The process is illustrated in Figure .</p>
+<div class="figure">
+<img src="source/figures/ensembling.png" alt="Ensembling " style="width:100.0%" />
+<p class="caption">Ensembling </p>
+</div>
+<p>The outcome of doing ensembling is that every image will have multiple predictions from multiple models. Usually, ensembling may be used with models from different families in order to combine strengths of multiple models into one. But in our case, we will use ensembling with only one model, because our interest is more in taking advantage of bagging to tackle noise rather than combining models.</p>
+<h3 id="bagging"><span class="header-section-number">4.2.2</span> Bagging</h3>
+<p>Bagging is a subcase of Ensembling when the training sets that are created are randomly cut from a given part of their data. This is particularly interesting when working with noisy labels because that enables, in expectancy, to avoid taking noise into account. Figure  depicts the process.</p>
+<div class="figure">
+<img src="source/figures/bagging.png" alt="Bootstrap aggregating (bagging) " style="width:100.0%" />
+<p class="caption">Bootstrap aggregating (bagging) </p>
+</div>
+<p>Suppose we think our dataset has around 5 % noise. Suppose further that we decide that 10 % of the data can be randomly removed in the bootstrap step. Then in expectancy, if we do enough models (<code>n_estimators</code>), chances are that the majority of the created datasets will not contain the noise and thus the models will not learn on errors. The combiner will thus manage to give correct predictions.</p>
+<h3 id="experiments"><span class="header-section-number">4.2.3</span> Experiments</h3>
+<p>We wanted to test on random datasets whether we could trust bagging for label robustness. So we generated three datasets, (1) two interleaving half circles, (2) two concentric circles and (3) a linearly separable dataset. They are respectively called Non-linear set 1, Non-linear set 2 and Linearly separable.</p>
+<p>We artificially added noise in these sets (30% label permutation) and plotted the results (decision boundaries and accuracies) in Figure </p>
+<div class="figure">
+<img src="source/figures/classifier_comparison.png" alt="Classifier Comparison " style="width:100.0%" />
+<p class="caption">Classifier Comparison </p>
+</div>
+<p>And among the classifiers tested, we see that the Bagging MLP is the one performing the best. It has very coherent decision boundaries and outperforms standard MLP which highlights that bagging gains performance. SVM (and Bagging SVM) fail to capture the non-linearity in the second dataset.</p>
+<p>That makes Bagging MLP our best candidate for classification tasks with noisy labels.</p>
+<h2 id="detecting-mislabeled-data-points"><span class="header-section-number">4.3</span> Detecting mislabeled data points</h2>
+<p>Once our model has been trained with bagging, we can assume it did learn mostly on true labels which means we can trust it. If we apply the learnt model on all</p>
+<p>We look for images where the two following conditions meet :</p>
+<ol style="list-style-type: decimal">
+<li>The model is confident on its prediction</li>
+<li>The model is confident on its prediction not being the current label</li>
+</ol>
+<p>Empirically, we tested and found that using the <em>Mean Squared Error (MSE)</em> was a great measure to find these errors. Actually, let <span class="math inline">\(y\)</span> be the training multi-label and <span class="math inline">\(\hat{y}\)</span> the predicted labels. Both are of size <span class="math inline">\(|C|\)</span> where <span class="math inline">\(C\)</span> is the classes set.</p>
+<p><span class="math display">\[MSE(y, \hat{y}) = \frac{1}{|C|} \sum_{c\in C} (y_c - \hat{y}_c)^2\]</span></p>
+<p>We compute the MSEs for all images and sort them by decreasing order. Label errors will be found in the top of that list, where the MSE is the highest.</p>
+<h1 id="project-2-data-quality-on-a-companys-internal-gallery"><span class="header-section-number">5</span> Project 2 : Data Quality On A Company's Internal Gallery</h1>
+<h2 id="introduction-2"><span class="header-section-number">5.1</span> Introduction</h2>
+<p>During the internship at Equancy, we were given the opportunity to work on this very specific Data Quality problems for an external company. That company is a beverage selling company.</p>
+<p>It has a Digital Asset Management (DAM) that is used to store any digital file, usually related to the company's activity. On top of that collection is a search engine, and users can retrieve files using a search field. But as highlighted in the introduction, the images are retrieved by looking for string matchs between the query and the image's associated structured data e.g taxonomy categories or keywords (see  for a scheme) The company complained that the labeling was too imprecise, not filled enough and even sometimes wrong, eventually making it very hard to exploit their DAM.</p>
+<div class="figure">
+<img src="source/figures/DAM.png" alt="Data Asset Management on a big picture " style="width:100.0%" />
+<p class="caption">Data Asset Management on a big picture </p>
+</div>
+<p>The goal of this project is to find solutions to clean these labels, and also label other images and thus enable the platform to work better.</p>
+<h2 id="data-description"><span class="header-section-number">5.2</span> Data description</h2>
+<h3 id="items"><span class="header-section-number">5.2.1</span> Items</h3>
+<p>The DAM consists of over 90'000 assets that can be of any type (image, videos, slides etc). We only focus on image assets (<code>.jpg</code>, <code>.png</code>, <code>.tiff</code>), from now on called images. There are 57'099 images.</p>
+<p>When users upload an image into the platform, they are asked to fill two things :</p>
+<ul>
+<li>Taxonomy fields</li>
+<li>Keywords fields</li>
+</ul>
+<p>These two fields are the structured data that is used to make queries and retrieve data.</p>
+<h3 id="taxonomy-fields"><span class="header-section-number">5.2.2</span> Taxonomy fields</h3>
+<p>The company managed to derive a pre-defined set of classes in which images should fit. They can be business related classes (such as the operations department - Marketing, Sales). Or classes that <em>a priori</em> rely more on the image composition e.g Bottle, Drink Shot, Logos, Bar Code... And of course, the brand, e.g Absolut or Ballantines.</p>
+<table>
+<caption>Description of some of the taxonomy fields encountered in the DAM. </caption>
+<colgroup>
+<col width="20%" />
+<col width="24%" />
+<col width="22%" />
+<col width="22%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Node</th>
+<th align="left">Description</th>
+<th>Number of children</th>
+<th align="left">Visual Meaning ?</th>
+<th>Filling Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Brand and Variant</td>
+<td align="left">Brand of that asset (ex: Absolut or Ballantines)</td>
+<td>31</td>
+<td align="left">Yes. It can be fine-grained</td>
+<td>56 %</td>
+</tr>
+<tr class="even">
+<td align="left">Asset Type</td>
+<td align="left">Specific asset that is in the image. e.g Bottle, Drink, Logo, ...</td>
+<td>13</td>
+<td align="left">Yes.</td>
+<td>33 %</td>
+</tr>
+<tr class="odd">
+<td align="left">Market and Language</td>
+<td align="left">Geolocation of the team responsible for that asset</td>
+<td>23</td>
+<td align="left">No</td>
+<td>31 %</td>
+</tr>
+<tr class="even">
+<td align="left">Permissions</td>
+<td align="left">That particular asset file permissions</td>
+<td>9</td>
+<td align="left">No</td>
+<td>27 %</td>
+</tr>
+</tbody>
+</table>
+<h3 id="keywords"><span class="header-section-number">5.2.3</span> Keywords</h3>
+<p>This field is filled with no real strategy and is often a bucket for noise. Some users will copy paste one item's keywords for all the items in a folder, making them not only useless but also sometimes wrong. They're also a copy of the title.</p>
+<p>Our analysis highlighted the following facts :</p>
+<ol style="list-style-type: decimal">
+<li>Only 65 % of the images have keywords</li>
+<li>97 % of the keywords are present in less than 0.1 % of images</li>
+<li>Over 13'500 unique labels for these images (highly discriminant but no real rule on which to use)</li>
+<li>Many of the used keywords are redundant with the title or description of the image.</li>
+<li>On what remains are low value-added tags with poor visual meanings.</li>
+</ol>
+<p>That led us to think we could not learn on the current keywords and will have to use external labels.</p>
+<h2 id="defining-a-scope"><span class="header-section-number">5.3</span> Defining a scope</h2>
+<p><strong>Taxonomy</strong> The taxonomy is well filled over the dataset, and some of its classes have high visual meanings, making Taxonomy a great candidate for image classification. We can take advantage of the great dataset (over 57'000 images) to learn on it and find, correct mislabeled or unlabeled images. We decided, as a first part, to stick on 2 main categories, Asset Type and Brand and Variant.</p>
+<p><strong>Keywords</strong> As argued above, keywords do not consist in a valuable training data. We thus decided we would use external datasets or labels to train our models and deploy them later on keywords.</p>
+<p>We thus aim for three models:</p>
+<ul>
+<li>Model 1 : classify the Asset Type</li>
+<li>Model 2 : classify the Brand and Variant</li>
+<li>Model 3 : classify with key words.</li>
+</ul>
+<h2 id="evaluation"><span class="header-section-number">5.4</span> Evaluation</h2>
+<p>We decided, for each model, to create a test set using Stratified <span class="math inline">\(K\)</span>-Fold. Regular <span class="math inline">\(K\)</span>-Fold is used to generate random separations of the data into <span class="math inline">\(K\)</span> equally-sized parts e.g. put 90% of the data as <strong>train</strong> and 10% as <strong>test</strong> when <span class="math inline">\(K=10\)</span>. In our case, we use Stratified <span class="math inline">\(K\)</span>-Fold because our classes are highly unbalanced, and that enables to take this into account when separating parts, making sure to have all of the classes represented in each part. We randomly take one test part out and go through it, defining :</p>
+<ul>
+<li><span class="math inline">\(y_c\)</span> : the current labels</li>
+<li><span class="math inline">\(y\)</span> : the <strong>ground truth</strong></li>
+</ul>
+<p>In that way, we'll be able to track our improvements. Current performance is according to <span class="math inline">\(y_c\)</span>, and we'll predict <span class="math inline">\(y_p\)</span> the predicted labels in order to see if we increase the accuracy.</p>
+<p>The company taxonomy is not mutually exclusive which justifies the need of designing multi labeling classifiers, and thus adapted performance metrics for them. In that perspective, we decided to use <span class="math inline">\(f1\)</span> score and sometimes <span class="math inline">\(f2\)</span>.</p>
+<ul>
+<li>f1 score : harmonic mean of the precision and recall</li>
+</ul>
+<p><span class="math display">\[f_{1} = 2 \cdot \frac{\text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}\]</span></p>
+<h2 id="methods"><span class="header-section-number">5.5</span> Methods</h2>
+<p>As seen earlier, the first step when doing transfer learning is to apply forward passes of a pre-trained model on our images in order to get good embeddings. The choice of which pre-trained model is not necessarily obvious although some are more recent and maybe perform better than others on the ImageNet competition. Indeed, depending on which model we choose, and even where in that model we decide to extract the embeddings, we will end up with embeddings of different sizes and carrying different information.</p>
+<p>In this project, we decided to consider both VGG-16 and ResNet50 as pre-trained models candidates. That choice is arbitrary, but justified by the desire of</p>
+<ul>
+<li>keeping a reasonable amount of layers and complexity, like VGG-16</li>
+<li>obtaining a complexity hierarchy through layers as often exposed by VGG-16</li>
+<li>also having a more recent and complex model, like ResNet 50</li>
+</ul>
+<p>The choice of the pre-trained model will depend on the application (i.e here visualization and modeling) but will be shortly argued every time.</p>
+<p>Methods below include first exploratory analysis (visualization of extracted embeddings) and then modeling for the three defined problems. For each case, we'll try traditional machine learning models as long as proper fine-tuning with extra layers on top of the neural networks. At some point we'll also take advantage of additional information thanks to an API (Google Vision API).</p>
+<h3 id="visualizing-the-dataset"><span class="header-section-number">5.5.1</span> Visualizing the dataset</h3>
+<p>In this section, our main objective is to visualize our dataset. We'll thus first discuss which pre-trained model to use under that scope thanks to a PCA analysis, and then apply further dimension reductions for visualization. These steps eventually led us to address other topics including visual similarity and finding duplicates</p>
+<h4 id="principal-components-analysis-pca"><span class="header-section-number">5.5.1.1</span> Principal Components Analysis (PCA)</h4>
+<p>Our goal was initially to have a way to visualize our datasets under the pre-trained models eyes. We thus needed to reduce the dimensions of our embeddings while keeping most possible information. Already initially, because ResNet50 sizes <span class="math inline">\((1,2048)\)</span> are smaller than VGG-16 <span class="math inline">\((514, 7, 7)\)</span>, one could expect that this higher density will lead to more information quicker.</p>
+<p>So we applied a PCA for both extracted embeddings. The result is just below. As expected, we can see that ResNet50 embeddings will very quickly (i.e with few principal components) grow in the amount of variance explained.</p>
+<div class="figure">
+<img src="source/figures/pca_plots.png" alt="Principal Component Analysis on extracted embeddings " style="width:100.0%" />
+<p class="caption">Principal Component Analysis on extracted embeddings </p>
+</div>
+<p>That led us to choose ResNet50 as a feature extractor when it comes to visualizing our data.</p>
+<h4 id="embeddings-information-using-t-sne"><span class="header-section-number">5.5.1.2</span> Embeddings information using t-SNE</h4>
+<p>Now that we decided to use ResNet50 as a pre-trained model for feature extraction, we can apply a forward pass to all our images using that model (without the last layer). Thus for each image we have as output an embedding (vector) of size (1, 2048). Call <span class="math inline">\(X\)</span> the matrix with all the embeddings of our images, <span class="math inline">\(X\)</span> is of shape <span class="math inline">\((N, 2048)\)</span> where <span class="math inline">\(N = 57099\)</span> is the total number of images.</p>
+<p>In order to visualize this matrix, we use a dimension reduction algorithm called t-Distributed Stochastic Neighbor Embedding (t-SNE, <span class="citation">(Maaten &amp; Hinton 2008)</span>). This algorithm is particularly well suited for the visualization of high-dimensional datasets.</p>
+<p>Now, it can sometimes be misleading so to avoid deriving quickly too many conclusions from this visualization, we first take care to choose the hyper-parameters of t-SNE.</p>
+<p>Indeed, t-SNE has pitfalls : clusters sizes should not be representative of classes size, neither should the distance between clusters represent the real semantic difference between classes <span class="citation">(Wattenberg et al. 2016)</span>. t-SNE has quite a high sensitivity to both parameters, perplexity and number of iterations, which we explored respectively for values <span class="math inline">\({10, 20, 30, 40, 50}\)</span> and <span class="math inline">\({200, 500, 1000, 5000, 1000}\)</span>. We settled for perplexity = 20 and iterations = 500.</p>
+<div class="figure">
+<img src="source/figures/tsne_comparison.png" alt="Choosing the right hyper-parameters for t-SNE" style="width:100.0%" />
+<p class="caption">Choosing the right hyper-parameters for t-SNE</p>
+</div>
+<p>Please find below a figure that represents a random subset of <span class="math inline">\(n = 5000\)</span> images on this new 2-dimensional space found by t-SNE. We call it a map. What's interesting is that there is already a lot of semantic information on images that lie on this map. For example, there seems to be clusters : group of pictures that are semantically close look spatially close. Indeed, there are &quot;bottle&quot; clusters, &quot;people&quot; clusters...</p>
+<p>This is particularly encouraging for our classification tasks as embeddings, which will be our starting-point, already have a lot of information in them.</p>
+<div class="figure">
+<img src="source/figures/tsne_resnet.png" alt="t-SNE projection of n = 5000 randomly chosen ResNet50 images embeddings " style="width:100.0%" />
+<p class="caption">t-SNE projection of <span class="math inline">\(n = 5000\)</span> randomly chosen ResNet50 images embeddings </p>
+</div>
+<h4 id="embeddings-information-using-quiver"><span class="header-section-number">5.5.1.3</span> Embeddings information using Quiver</h4>
+<p>Quiver <span class="citation">(Bian 2016)</span> is a library that enables to explore the feature maps of models buit with Keras. We used it to check how VGG-16 feature maps would look like on our data and the same conclusions can be drawn as in Part 2 : the deeper the layer, the more complex the feature maps.</p>
+<div class="figure">
+<img src="source/figures/quiver.png" alt="Screenshot of our Quiver webapp " style="width:100.0%" />
+<p class="caption">Screenshot of our Quiver webapp </p>
+</div>
+<h4 id="going-further-on-similarities"><span class="header-section-number">5.5.1.4</span> Going further on similarities</h4>
+<p>We wanted to go a little further and question some more the relationship between the semantic distance between images and the corresponding distance on the map.</p>
+<p>Let's define a little more what we mean by <em>semantic distance</em>. A semantic distance should be understood as a way to measure how the images are close in their true semantic meaning. One must be careful, it is not clear exactly what kind of semantic distance we're expecting. For example two black and white pictures can be semantically close because they're both using the same color range and picture style. But a black and white picture representing a bottle and a RGB picture representing a bottle are also semantically clean.</p>
+<p>By <em>corresponding distance on the map</em>, we mean a cosine distance between the two embeddings.</p>
+<p>Applications :</p>
+<p><strong>Search engine by image.</strong> This kind of method could be used to query a data collection with an image instead of a string. As a response, the model would return the <span class="math inline">\(m\)</span> most similar (according to the cosine distance) images from the dataset.</p>
+<p>We show some results in Figure  that assess that the embeddings do hold semantic meanings but the distances may highlight different things :</p>
+<ul>
+<li>Row 1 : Similar objects are on the pictures (fruits, drinks)</li>
+<li>Row 2 : Similar colormap / mood in the pictures (black and white)</li>
+<li>Row 3 : Same objects with different colors</li>
+<li>Row 4 : Same patterns / textures</li>
+<li>Row 5 : Same objects and same colors</li>
+</ul>
+<div class="figure">
+<img src="source/figures/similarities.png" alt="Image input (first column) and the 4 most similar images " style="width:100.0%" />
+<p class="caption">Image input (first column) and the 4 most similar images </p>
+</div>
+<p><strong>Finding duplicates.</strong> Although this was out of the project's scope defined by the company but once similarities are computed it would be tempting to use them in order to detect duplicate images and maybe remove them. Indeed, above a given threshold, one may say that two images are so similar that they are the same. It happens that such a threshold seems to work sometimes. Yet we enumerate below two difficulties we thought of that would justify that this is not such a straightforward problem.</p>
+<ul>
+<li><p>In the previous Figure , the bar codes on the fifth line have very high similarity measures (above .99) but the bar codes are not the same.</p></li>
+<li><p>Models like VGG-16 or ResNet50 apply pre processing steps to images like resizing e.g. 224*224 for VGG-16. So two images that were initially in a collection with different sizes, resolutions, may end up with the exact same embeddings while the images are not duplicates and the company may just want to keep the images with a few different resolutions.</p></li>
+</ul>
+
+<h3 id="modeling"><span class="header-section-number">5.5.2</span> Modeling</h3>
+<h4 id="asset-type"><span class="header-section-number">5.5.2.1</span> Asset Type</h4>
+<h5 id="defined-scope"><span class="header-section-number">5.5.2.1.1</span> Defined scope</h5>
+<p>We work on 13 classes : Bottle, Can, Case, Drink Shots, Font, Heritage, Ingredients, Labels, Logos, Medals and Awards, Packaging Artwork, People, Tasting Notes, UPC - Bar Codes, VAP - Gift Packs.</p>
+<p><strong>Distribution.</strong> We display below in Figure  the labels distribution of Asset Type category.</p>
+<div class="figure">
+<img src="source/figures/distributions_asset_type.png" alt="Co-occurence matrix and histogram of labels in Asset Type category " style="width:100.0%" />
+<p class="caption">Co-occurence matrix and histogram of labels in Asset Type category </p>
+</div>
+<p>From that plot, we can see that the classes are very unbalanced and that there are rarely more than one label on an image (besides Bottle &amp; Case, Bottle &amp; Drink Shots and Bottle &amp; People)</p>
+<h5 id="analysis"><span class="header-section-number">5.5.2.1.2</span> Analysis</h5>
+<p>We describe below the steps we considered when working on Asset Type.</p>
+<p><strong>Feature Extractor.</strong> The best feature extractor was VGG-16 in our case. See Figure </p>
+<div class="figure">
+<img src="source/figures/vgg_or_resnet.png" alt="Performance differences between VGG-16 and ResNet. VGG-16 performs slightly better. " style="width:100.0%" />
+<p class="caption">Performance differences between VGG-16 and ResNet. VGG-16 performs slightly better. </p>
+</div>
+<p><strong>Models considered.</strong> We selected XGBoost, RF, ML-kNN, SVM and MLP as candidates, as well as a stacking model (composed of all of them) and bagging versions for SVM and MLP.</p>
+<p>Please note that MLP is a model which input is the last convolutional layer of VGG-16 with size (7, 7, 512). It is appended with the following NN (Keras verbose)</p>
+<pre><code>MaxPooling2D(input_shape=X_shape,name = &#39;top_maxpooling&#39;))
+BatchNormalization()
+Dropout(.5)
+Flatten(name=&#39;top_flatten&#39;)
+Dense(512, activation=&#39;relu&#39;, name=&#39;top_relu_1&#39;)
+BatchNormalization()
+Dropout(.5)
+Dense(512, activation=&#39;relu&#39;, name=&#39;top_relu_2&#39;)
+BatchNormalization()
+Dropout(.5)
+Dense(n_classes, activation=&#39;sigmoid&#39;)</code></pre>
+<p>And the BaggingMLP is a bagging version of that MLP with 5 estimators and a maximum random sample size of 75 %.</p>
+<p><strong>Performance and PCA Analysis.</strong> We wanted to study what was a good compromise between number of components kept after PCA, computation time and performance (f1-score). Figure  represents exactly that, and enables to draw interesting conclusions.</p>
+<ul>
+<li>Bagging MLP, ML-kNN and the Stacking models perform the best. That seems pretty natural because we've seen that bagging MLP is robust to noisy data. We also just saw that there was a strong correlation between semantics and distances, which is encouraging for ML-kNN that is based on distances. K-Nearest Neighbors is indeed known to perform well in classification tasks in output spaces of NNs <span class="citation">(Salakhutdinov &amp; Hinton 2007)</span>. Finally, the Stacking model is supposed to do as least as good as the best of the models it is composed of, so it makes sense to see it performing well.</li>
+<li>Most models (besides RF and SVMs) start converging when more than 100 components are kept.</li>
+<li>Stacking model is the slowest model.</li>
+<li>RF does not handle too many components : starting from 50 components, the performance decreases when components grow. This can be linked with the fact that as the number of components grew, we did not change the number of trees. But doing it required too much computation time - and only RF reacts badly to that.</li>
+</ul>
+<div class="figure">
+<img src="source/figures/asset_type_pca.png" alt="Analysis of performance and computation time depending on the principal components kept. " style="width:100.0%" />
+<p class="caption">Analysis of performance and computation time depending on the principal components kept. </p>
+</div>
+<p><strong>Model Selection.</strong> We thus selected Bagging MLP as our model with embeddings of size 100.</p>
+<p>One final parameter we wanted to study is the probability threshold i.e. from what probability value we should decide to output a given class. From Figure  we decided to settle for a threshold of 0.4.</p>
+<div class="figure">
+<img src="source/figures/scores_asset_type_keras_bagging_final.png" alt="Probability threshold influence on BaggingMLP&#39;s performance for Asset Type. " style="width:100.0%" />
+<p class="caption">Probability threshold influence on BaggingMLP's performance for Asset Type. </p>
+</div>
+
+<h5 id="results"><span class="header-section-number">5.5.2.1.3</span> Results</h5>
+<p>We managed to find 2'500 images concerned by label errors (13 % of the images). A few results are in Figure .</p>
+<div class="figure">
+<img src="source/figures/asset_type_errors.png" alt="Examples of errors found in the labels. Red : previous label, Blue : predicted label " style="width:80.0%" />
+<p class="caption">Examples of errors found in the labels. Red : previous label, Blue : predicted label </p>
+</div>
+<p>Our model was also deployed on images that had no labels (38'000 images concerned). It classified 35'000 of them. Some examples in Figure </p>
+<div class="figure">
+<img src="source/figures/asset_type_enrich.png" alt="Model deployed on unlabeled images for Asset Type. " style="width:80.0%" />
+<p class="caption">Model deployed on unlabeled images for Asset Type. </p>
+</div>
+<p>Finally, the filling rate for Asset Type taxonomy went from 33% (19'000) to<br />
+94% (54'000) . And 2'500 errors were detected.</p>
+
+
+<h4 id="using-google-vision-api"><span class="header-section-number">5.5.2.2</span> Using Google Vision API</h4>
+<p><strong>Motivation</strong></p>
+<p>Brand and Variant was a more difficult category because the differences are more subtle between brands than between objects. One explanation is that our architecture was not adapted : VGG-16 was designed to classify objects, and fine-grained recognition deserves taylor-made architectures.</p>
+<p>The model associated with Keywords was also challenging because it was expected to be quite generic and give more general descriptors of images.</p>
+<p>We decided to leverage an external Computer Vision API <span class="citation">(Google)</span>, initially as a way to see its performances and guarantee we could have results, but also as a way to improve our training sets by giving supplementary labels on which we could train.</p>
+<p>Three methods were used :</p>
+<ul>
+<li><code>TEXT_DETECTION</code> : performs Optical Character Recognition (OCR) and language identification</li>
+<li><code>LABEL_DETECTION</code> : detects broad sets of categories within an image, which range from modes of transportation to animals</li>
+<li><code>LOGO_DETECTION</code> : detects popular product logos in an image</li>
+</ul>
+<p><strong>Results</strong></p>
+<p>The API is really strong in finding labels to describe an image. It almost always returns something, and visual checks confirmed that these labels were good. Moreover, labels are good descriptors for either objects, scenes or colors classifications.</p>
+<p>There are many results for text detection (nearly 50% of cases) and although there are errors in the OCR, words remain pretty close from the original texts.</p>
+<p>Logos were rarely found (15 % of cases) and were sometimes wrong. Most often, when logos are found, the text detection was already close enough and could have been sufficient to identify the brand.</p>
+<table style="width:99%;">
+<caption>Number of results for methods of Google Vision API. </caption>
+<colgroup>
+<col width="33%" />
+<col width="50%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Number of images filled</th>
+<th align="left">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>LABEL_DETECTION</td>
+<td>56'830</td>
+<td align="left">99.5 %</td>
+</tr>
+<tr class="even">
+<td>LOGO_DETECTION</td>
+<td>8'622</td>
+<td align="left">15.1 %</td>
+</tr>
+<tr class="odd">
+<td>TEXT_DETECTION</td>
+<td>28'166</td>
+<td align="left">49.3 %</td>
+</tr>
+</tbody>
+</table>
+<p>Some examples are shown in Figure  :</p>
+<div class="figure">
+<img src="source/figures/google_api_res.png" alt="Results of Google Vision API for some images. " style="width:100.0%" />
+<p class="caption">Results of Google Vision API for some images. </p>
+</div>
+<h4 id="brand-and-variant"><span class="header-section-number">5.5.2.3</span> Brand and Variant</h4>
+<h5 id="defined-scope-1"><span class="header-section-number">5.5.2.3.1</span> Defined scope</h5>
+<p>We focus on 30 classes : Aberlour, Absolut, Altos, Ararat, Avion, Ballantines, Becherovka, Beefeater, Chivas Brothers, Chivas Regal, G.H.MUMM, Havana Club, Jacob's Creek, Jameson, Kahlua, Kenwood, Lillet, Malibu, Martell, Midleton, Oddka, Olmeca, Pernod, Perrier-Jouët, Plymouth, Ricard, Royal Salute, Seagram's, The Glenlivet, Wyborowa</p>
+<h5 id="modeling-1"><span class="header-section-number">5.5.2.3.2</span> Modeling</h5>
+<p><strong>Take advantage of Google Vision API logos and text</strong></p>
+<p>As highlighted in the results of Google Vision API, the <code>TEXT_DETECTION</code> worked pretty often (nearly 50% of cases) but sometimes OCR had some errors (misspellings occured).</p>
+<p>We looked for 1-gram, 2-grams and 3-grams that have a sufficiently low <em>distance</em> with a brand's name. By <em>distance</em>, we mean Levenshtein distance. For example for Perrier-Jouët, the gain is very high if we tolerate distances &lt;= 3 :</p>
+<ul>
+<li>0 : perrier-jouët</li>
+<li>1 : perrier-jouêt, errier-jouët</li>
+<li>2 : perrier-jou, perrier-3ouet, perrier jourt, ...</li>
+<li>3 : perriergouet, perrier jou et, perkierjouet, perrier joutn...</li>
+</ul>
+<p>Some more examples are in Figure </p>
+<div class="figure">
+<img src="source/figures/misspellings.png" alt="Examples of brand retrievals using Levenshtein distances. " style="width:100.0%" />
+<p class="caption">Examples of brand retrievals using Levenshtein distances. </p>
+</div>
+<p>The distance threshold is inferred from the brand's string length according to the following function :</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> valid_threshold(string, score):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    if a string has a levenshtein distance</span>
+<span class="co">    below its length divided by 4 with a brand</span>
+<span class="co">    then we want to keep it</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    threshold <span class="op">=</span> <span class="bu">round</span>(<span class="bu">len</span>(brand)<span class="op">/</span><span class="dv">4</span>)
+    <span class="cf">return</span> score <span class="op">&lt;=</span> threshold</code></pre></div>
+<p>That function showed good results and we manually removed cases when it didn't work. Especially, short strings were too sensitive because tolerating distances with them would yield many false positives (usual words from english language for example). We also applied this process to the logos found by the API in order to match them to our initial labels set regardless of small variations.</p>
+<p>Below is a plot that describes the gain in number of tags that both logo and text tolerance enabled us to have.</p>
+<div class="figure">
+<img src="source/figures/typos_gain.png" alt="Gain of brand retrieval on OCR output with misspellings tolerance. " style="width:100.0%" />
+<p class="caption">Gain of brand retrieval on OCR output with misspellings tolerance. </p>
+</div>
+<p>We can observe that these tolerances on misspellings enabled to find many more brands in the images than if we only looked for perfect matchs. This is particularly true for complex spellings like &quot;Perrier-Jouët&quot; which gain is very significant.</p>
+<p>Finally, thanks to this, we went from 32'700 labels for brands to 36'200 and highlighted 700 errors. This enabled us to somehow ensure that the DAM was now cleaned for Brand and Variant. But just like Asset Type, we wanted to provide a model that could help in the future without needing to go through Google Vision API.</p>
+<p><strong>Bagging MLP Multi-label</strong></p>
+<p>It was not easy to find the best training set for learning brands because some images were initially tagged with brands but they had no visual meaning e.g. an employee for brand <span class="math inline">\(X\)</span> could be tagged with that brand <span class="math inline">\(X\)</span> but there is nothing that our vision models can learn on it.</p>
+<p>Using brands training set straight away thus led to poor results. We tried to filter images such that they had a better visual signature by keeping those that also fell into Asset Type categories within the ones we selected in the first place. We trained with batch_size=64, epochs=5.<br />
+Results were better, but the model is rarely confident enough to find errors (and we also assumed that there would be very few errors).</p>
+<p>We still provide results in Figure </p>
+<div class="figure">
+<img src="source/figures/brands_res_mlp.png" alt="Some results for Brand and Variant BaggingMLP model " style="width:80.0%" />
+<p class="caption">Some results for Brand and Variant BaggingMLP model </p>
+</div>
+<h4 id="keywords-1"><span class="header-section-number">5.5.2.4</span> Keywords</h4>
+<h5 id="defined-scope-2"><span class="header-section-number">5.5.2.4.1</span> Defined scope</h5>
+<p>Current keywords were very noisy making it impossible to train on them. We thus decided to use Google Vision API <code>LABEL_DETECTION</code> method's output as a ground truth and train on it.</p>
+<h5 id="modeling-2"><span class="header-section-number">5.5.2.4.2</span> Modeling</h5>
+<p>Among the 57'099 images that went through the API, the <code>LABEL_DETECTION</code> method gave results for 56'830 (99.5 %) of them. That represented 3'333 unique labels.</p>
+<p>Assuming we want to use these labels as a ground truth to train a model, we thought 3'333 labels (which meant training for 3'333 classes) was too big.</p>
+<p>With 57k training images, having 3'333 classes meant an average of 17 images per class which is too low. Especially because considering averages is wrong : the distribution of labels is much closer to a negative exponential, and it has a very long tail i.e. most words have a frequency even below 10 (see Figure )</p>
+<div class="figure">
+<img src="./source/figures/labels_distribution.png" alt="Distribution of labels frequencies. " style="width:100.0%" />
+<p class="caption">Distribution of labels frequencies. </p>
+</div>
+<p>We thus thought of three different ways to filter and decide which labels to train on :</p>
+<ol style="list-style-type: decimal">
+<li>Keeping those with a frequency above a given threshold.</li>
+<li>Create <em>super</em> labels using topic extraction.</li>
+<li>Asking the company to manually select labels that made sense for their business.</li>
+</ol>
+<p>The one we used to deliver the project was (1) because it was the quickest approach and it didn't need heavy feedbacks from the company. But we investigated (2) in Supplementary Applications part, and suggested (3) to the company for further iterations of the project.</p>
+<p><strong>Frequency threshold study.</strong></p>
+<p>We wanted to find what threshold (minimum frequency for a label) best suited our study, taking into consideration the impact on the number of images that were concerned by the remaining labels, and the number of images per labels.</p>
+<div class="figure">
+<img src="source/figures/frequency_threshold_plot.png" alt="Influence of the label minimum frequency filter on the number of labels and images. " style="width:100.0%" />
+<p class="caption">Influence of the label minimum frequency filter on the number of labels and images. </p>
+</div>
+<p>We settled for 107 and 500 labels. These labels may be found in the Appendix. Once again, we don't claim here that this choice is wise in regard to the final application. Indeed, most frequent tags may not always be discriminant when a user makes a query. Yet we believe that this ensures having enough training data for all classes (at least 100 examples per class).</p>
+<p><strong>Model.</strong> For both models (107 labels and 500 labels) we used Bagging MLPs and they worked very well. We respectively chose 512 (for 107 labels) and 2'000 (for 500 labels) neurons on both hidden layers. We used 5 estimators but a maximum random sample size of 90 %, estimating that there was less noise in this set. Training was done with 5 epochs and 64 <code>batch_size</code>.</p>
+<p>We studied once more the performances of various models when adding noise on a <em>clean</em> dataset like the 500 labels dataset. See Figure .</p>
+<div class="figure">
+<img src="source/figures/keywords_noise.png" alt="Models performances when adding noise to 500 labels data " style="width:100.0%" />
+<p class="caption">Models performances when adding noise to 500 labels data </p>
+</div>
+<p>Bagging MLP remains the best model regardless of the amount of noise (label flips) we insert in the original data. It has a small decreasing rhythm, unlike SVM for example.</p>
+<p>We also make sure to evaluate what is the best probability threshold, and settle on 0.4, see Figure .</p>
+<div class="figure">
+<img src="source/figures/scores_keywords_keras_bagging_500.png" alt="Tuning the probability threshold for 500 labels model " style="width:100.0%" />
+<p class="caption">Tuning the probability threshold for 500 labels model </p>
+</div>
+<p><strong>Results.</strong> Some examples of outputs for the 500 labels model are shown below in Figure </p>
+<div class="figure">
+<img src="source/figures/keywords500_res.png" alt="Examples of the 500 labels model. It can handle many different situations. " style="width:100.0%" />
+<p class="caption">Examples of the 500 labels model. It can handle many different situations. </p>
+</div>
+
+
+<h2 id="supplementary-applications"><span class="header-section-number">5.6</span> Supplementary applications</h2>
+<ul>
+<li>Further application 1 : suggesting a new data-driven taxonomy</li>
+</ul>
+<p>One idea we had was to suggest the company a new taxonomy that truly matches their data. For example, starting from the embeddings of the images, we could apply clustering methods like k-means, evaluate them using silhouette scores and if they reach a sufficient score the clusters could be named as new categories. We tried this for mutually exclusive categories (single-label classification) but doing this for multi-labeling was less clear.</p>
+<ul>
+<li>Further application 2 : topic extraction on labels</li>
+</ul>
+<p>As inspired by <span class="citation">(Ghazouani 2016)</span>, we thought we could prune the number of labels given from the Google API results by applying topic extractions on them. By analogy with Natural Language Processing where topic extraction is famous, we represent each image just like documents as unordered lists of words (here labels). And we try to find <span class="math inline">\(k\)</span> topics (<span class="math inline">\(k\)</span> is an input) that best describe the labels.</p>
+<p>That enables to find <em>super</em> labels automatically, i.e. labels categories. We show below some of the topics we found when applying LDA with <span class="math inline">\(k=30\)</span> along with their 20 most probable words (labels) and manually give them names.</p>
+<p>Topic 0 (<strong>art</strong>) : monochrome black white photography line structure pattern text photograph angle history design architecture font russian building stock factory sky area</p>
+<p>Topic 1 (<strong>lifestyle</strong>) : fun event socialite girl fashion party ceremony relations smile club friendship public nightclub interaction purple costume drink restaurant night recreation</p>
+<p>Topic 2 (<strong>face</strong>) : hair smile facial hairstyle chin long cheek forehead care vision glasses human eyebrow brown eyewear beauty girl color person professional</p>
+<p>Topic 3 (<strong>events</strong>): public relations communication speaking professional technology conversation presentation institution conference speech energy academic business lecture meeting seminar entrepreneur device orator</p>
+<p>Topic 4 (<strong>business</strong>): executive business businessperson professional official officer chin worker collar forehead suit person profession entrepreneur white gentleman elder spokesperson wear formal</p>
+<p>Instead of choosing the labels because of their frequencies, we could have used topics instead of labels are classes. This could be interesting.</p>
+<ul>
+<li>Further application 3 : monitoring brands identities</li>
+</ul>
+<p>Now that we provided the company with a generic API that may give multi label predictions on images, we thought it would be interesting to apply these models to data streams from social networks e.g. Twitter / Instagram in order to get an idea of what brands transmit in their images in term of semantic. A typical visualization for this is Senkey diagrams, which we did (using only the information on the DAM images).</p>
+<div class="figure">
+<img src="source/figures/senkey.png" alt="What brands transmit in their images " style="width:100.0%" />
+<p class="caption">What brands transmit in their images </p>
+</div>
+
+<h2 id="failures"><span class="header-section-number">5.7</span> Failures</h2>
+<p>In this part, we quickly present approaches we also considered but that did not give convincing results.</p>
+<h3 id="fcnn-on-asset-type"><span class="header-section-number">5.7.1</span> FCNN on Asset Type</h3>
+<p>Like in Project 1, we also tried using FCNNs but the performances were worse than using the Bagging MLP.</p>
+<h3 id="include-keywords-embeddings-into-the-training-tf-idf-features"><span class="header-section-number">5.7.2</span> Include Keywords embeddings into the training (TF-IDF features)</h3>
+<p>Before deciding that we would not train on keywords for sure, we tried to use them as additional features for our Bagging MLP when training for Asset Type. Indeed, along with the VGG-16 embedding, we used TF-IDF features from the Keywords field, but that didn't work.</p>
+<h3 id="training-on-imagenet-for-keywords"><span class="header-section-number">5.7.3</span> Training on ImageNet for Keywords</h3>
+<p>Initially, we tried to train the Bagging MLP on the ImageNet dataset, only considering 100 classes that we manually selected. The results were very bad, and we think one reason is that ImageNet initial dataset only has one class per image, while we were training for multi labels. So maybe sometimes a few classes were present but the image wasn't labeled for all of them which is confusing for the algorithm.</p>
+<h2 id="environment"><span class="header-section-number">5.8</span> Environment</h2>
+<p>We worked on Jupyter Notebooks, using Keras <span class="citation">(Chollet &amp; others 2015)</span> framework for Deep Learning. Computations were done on an AWS ec2 instance with GPU.</p>
+<h2 id="general-results"><span class="header-section-number">5.9</span> General Results</h2>
+<p>Thanks to this project, the DAM of the company was cleaned, enriched, and models were saved for further use.</p>
+<p><strong>Asset Type</strong></p>
+<ul>
+<li>from 19'000 labeled images to 54'000 (+ 62%)</li>
+<li>detected 2'500 errors</li>
+</ul>
+<p><strong>Brand and variant</strong></p>
+<ul>
+<li>from 32'700 labeled images to 36'200 (+ 7%)</li>
+<li>detected 700 errors</li>
+</ul>
+<p><strong>Keywords</strong></p>
+<ul>
+<li>replaced the full dataset keywords by our labels. (100%)</li>
+</ul>
+<p>Not only our models enabled to clean and enrich the current DAM, but they will be use-able in the future when new images will be uploaded. We also highlighted potential future applications.</p>
+<h1 id="conclusion-1"><span class="header-section-number">6</span> Conclusion</h1>
+<!--
+A chapter that concludes the thesis by summarising the learning points
+and outlining future areas for research
+-->
+<p>In this thesis, we studied methods to add structure in images and image collections using Deep Learning. The roots of these methods are in Neural Networks, especially Convolutional Neural Networks. We first provided keys for understanding why these models perform well, and then went over a few applications to confirm their strengths.</p>
+<p>Indeed, in Project 1, we have seen how Fully Convolutional Neural Networks (FCNNs) were able to classify a collection of race car images. A particular strength of the FCNN we designed was to provide unsupervised localization <em>for free</em>, using activations of the last convolutional layer. Yet, we also went through a full methodology for training models for supervised localization using manual annotations and SSD algorithm.</p>
+<p>Project 2 was an opportunity to work on a real company's internal gallery. The company wanted to find ways to improve their experience when browsing their Data Asset Management platform, and classification algorithms were one convincing solution. We particularly showed that Bagging Multi Layer Perceptrons on top of pre-trained models were performing well in multi label classification tasks. Some of their images had wrong labels, and our models were able not only to be robust to that noise, but also to highlight these very same noisy images, while suggesting new correct labels.</p>
+<p>Along the way, we highlighted other applications like high-dimensionality data visualization, image search engines, duplicates finding or image clustering. We hope having provided keys, ideas and solutions to keep in mind when cleaning or enriching image collections.</p>
+<p>Complementary works on Computer Vision are numerous : image segmentation, image generation, image to caption models... Deep Learning applied to Computer Vision is indeed a very active research field. While we highlighted that image traffics were rising a lot every year, we mention now that videos are expected to generate more than three-fourths (78 %) of mobile data traffic by 2021 <span class="citation">(Cisco 2017)</span>. Videos are by themselves particular collections of images, and one can expect that just like tailor-made algorithms for images became very usual, the same will soon apply for videos.</p>
+<h1 id="appendix-1-107-labels" class="unnumbered">Appendix 1: 107 Labels</h1>
+<p>We show below the 107 labels kept when working with keywords. They appear at least 800 times each.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">[<span class="st">&#39;academic conference&#39;</span>, <span class="st">&#39;advertising&#39;</span>, <span class="st">&#39;alcohol&#39;</span>,
+ <span class="st">&#39;alcoholic beverage&#39;</span>, <span class="st">&#39;area&#39;</span>, <span class="st">&#39;audience&#39;</span>, <span class="st">&#39;bar&#39;</span>, <span class="st">&#39;beer&#39;</span>,
+ <span class="st">&#39;black and white&#39;</span>, <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;bottle&#39;</span>, <span class="st">&#39;brand&#39;</span>, <span class="st">&#39;building&#39;</span>,
+ <span class="st">&#39;business executive&#39;</span>, <span class="st">&#39;businessperson&#39;</span>, <span class="st">&#39;ceremony&#39;</span>, <span class="st">&#39;champagne&#39;</span>,
+ <span class="st">&#39;chin&#39;</span>, <span class="st">&#39;city&#39;</span>, <span class="st">&#39;cocktail&#39;</span>, <span class="st">&#39;cocktail garnish&#39;</span>, <span class="st">&#39;communication&#39;</span>,
+ <span class="st">&#39;computer wallpaper&#39;</span>, <span class="st">&#39;convention&#39;</span>, <span class="st">&#39;conversation&#39;</span>, <span class="st">&#39;crowd&#39;</span>,
+ <span class="st">&#39;cuisine&#39;</span>, <span class="st">&#39;darkness&#39;</span>, <span class="st">&#39;design&#39;</span>, <span class="st">&#39;dessert wine&#39;</span>, <span class="st">&#39;dish&#39;</span>,
+ <span class="st">&#39;distilled beverage&#39;</span>, <span class="st">&#39;drink&#39;</span>, <span class="st">&#39;drinkware&#39;</span>, <span class="st">&#39;entertainment&#39;</span>,
+ <span class="st">&#39;entrepreneur&#39;</span>, <span class="st">&#39;event&#39;</span>, <span class="st">&#39;executive officer&#39;</span>, <span class="st">&#39;fashion&#39;</span>, <span class="st">&#39;flavor&#39;</span>,
+ <span class="st">&#39;font&#39;</span>, <span class="st">&#39;food&#39;</span>, <span class="st">&#39;forehead&#39;</span>, <span class="st">&#39;fun&#39;</span>, <span class="st">&#39;furniture&#39;</span>, <span class="st">&#39;gentleman&#39;</span>,
+ <span class="st">&#39;gin and tonic&#39;</span>, <span class="st">&#39;girl&#39;</span>, <span class="st">&#39;glass&#39;</span>, <span class="st">&#39;glass bottle&#39;</span>, <span class="st">&#39;graphics&#39;</span>,
+ <span class="st">&#39;grass&#39;</span>, <span class="st">&#39;harvey wallbanger&#39;</span>, <span class="st">&#39;institution&#39;</span>, <span class="st">&#39;interior design&#39;</span>,
+ <span class="st">&#39;juice&#39;</span>, <span class="st">&#39;label&#39;</span>, <span class="st">&#39;light&#39;</span>, <span class="st">&#39;lighting&#39;</span>, <span class="st">&#39;line&#39;</span>, <span class="st">&#39;liqueur&#39;</span>, <span class="st">&#39;liquid&#39;</span>,
+ <span class="st">&#39;logo&#39;</span>, <span class="st">&#39;monochrome&#39;</span>, <span class="st">&#39;monochrome photography&#39;</span>, <span class="st">&#39;night&#39;</span>,
+ <span class="st">&#39;non alcoholic beverage&#39;</span>, <span class="st">&#39;official&#39;</span>, <span class="st">&#39;party&#39;</span>, <span class="st">&#39;performance&#39;</span>,
+ <span class="st">&#39;performance art&#39;</span>, <span class="st">&#39;performing arts&#39;</span>, <span class="st">&#39;person&#39;</span>, <span class="st">&#39;plant&#39;</span>, <span class="st">&#39;product&#39;</span>,
+ <span class="st">&#39;product design&#39;</span>, <span class="st">&#39;profession&#39;</span>, <span class="st">&#39;professional&#39;</span>, <span class="st">&#39;public relations&#39;</span>,
+ <span class="st">&#39;public speaking&#39;</span>, <span class="st">&#39;purple&#39;</span>, <span class="st">&#39;recreation&#39;</span>, <span class="st">&#39;restaurant&#39;</span>, <span class="st">&#39;sky&#39;</span>,
+ <span class="st">&#39;smile&#39;</span>, <span class="st">&#39;socialite&#39;</span>, <span class="st">&#39;speech&#39;</span>, <span class="st">&#39;stage&#39;</span>, <span class="st">&#39;stemware&#39;</span>,
+ <span class="st">&#39;still life photography&#39;</span>, <span class="st">&#39;suit&#39;</span>, <span class="st">&#39;table&#39;</span>, <span class="st">&#39;tableware&#39;</span>,
+ <span class="st">&#39;technology&#39;</span>, <span class="st">&#39;text&#39;</span>, <span class="st">&#39;tourism&#39;</span>, <span class="st">&#39;tree&#39;</span>, <span class="st">&#39;vehicle&#39;</span>, <span class="st">&#39;vodka&#39;</span>,
+ <span class="st">&#39;water&#39;</span>, <span class="st">&#39;whisky&#39;</span>, <span class="st">&#39;white collar worker&#39;</span>, <span class="st">&#39;wine&#39;</span>, <span class="st">&#39;wine bottle&#39;</span>,
+ <span class="st">&#39;wine glass&#39;</span>, <span class="st">&#39;wood&#39;</span>, <span class="st">&#39;yellow&#39;</span>]</code></pre></div>
+<h1 id="appendix-2-500-labels" class="unnumbered">Appendix 2: 500 Labels</h1>
+<p>We show below the 500 labels kept when working with keywords.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">[<span class="st">&#39;absolut vodka&#39;</span>, <span class="st">&#39;academic conference&#39;</span>, <span class="st">&#39;advertising&#39;</span>, <span class="st">&#39;agave&#39;</span>,
+ <span class="st">&#39;agave azul&#39;</span>, <span class="st">&#39;agriculture&#39;</span>, <span class="st">&#39;alcohol&#39;</span>, <span class="st">&#39;alcoholic beverage&#39;</span>,
+ <span class="st">&#39;angle&#39;</span>, <span class="st">&#39;animal source foods&#39;</span>, <span class="st">&#39;appetizer&#39;</span>, <span class="st">&#39;arch&#39;</span>, <span class="st">&#39;architecture&#39;</span>,
+ <span class="st">&#39;area&#39;</span>, <span class="st">&#39;arecales&#39;</span>, <span class="st">&#39;arm&#39;</span>, <span class="st">&#39;art&#39;</span>, <span class="st">&#39;art exhibition&#39;</span>, <span class="st">&#39;atmosphere&#39;</span>,
+ <span class="st">&#39;audience&#39;</span>, <span class="st">&#39;audio&#39;</span>, <span class="st">&#39;auditorium&#39;</span>, <span class="st">&#39;automotive design&#39;</span>,
+ <span class="st">&#39;automotive exterior&#39;</span>, <span class="st">&#39;automotive tire&#39;</span>, <span class="st">&#39;award&#39;</span>,
+ <span class="st">&#39;bacardi cocktail&#39;</span>, <span class="st">&#39;banner&#39;</span>, <span class="st">&#39;banquet&#39;</span>, <span class="st">&#39;bar&#39;</span>, <span class="st">&#39;barrel&#39;</span>,
+ <span class="st">&#39;bartender&#39;</span>, <span class="st">&#39;barware&#39;</span>, <span class="st">&#39;batida&#39;</span>, <span class="st">&#39;bay breeze&#39;</span>, <span class="st">&#39;beard&#39;</span>, <span class="st">&#39;beauty&#39;</span>,
+ <span class="st">&#39;beer&#39;</span>, <span class="st">&#39;beer bottle&#39;</span>, <span class="st">&#39;beer cocktail&#39;</span>, <span class="st">&#39;beer glass&#39;</span>, <span class="st">&#39;black&#39;</span>,
+ <span class="st">&#39;black and white&#39;</span>, <span class="st">&#39;black hair&#39;</span>, <span class="st">&#39;black russian&#39;</span>, <span class="st">&#39;blazer&#39;</span>, <span class="st">&#39;blond&#39;</span>,
+ <span class="st">&#39;blood and sand&#39;</span>, <span class="st">&#39;blue&#39;</span>, <span class="st">&#39;boat&#39;</span>, <span class="st">&#39;boating&#39;</span>, <span class="st">&#39;bottle&#39;</span>, <span class="st">&#39;box&#39;</span>,
+ <span class="st">&#39;branch&#39;</span>, <span class="st">&#39;brand&#39;</span>, <span class="st">&#39;brandy&#39;</span>, <span class="st">&#39;breakfast&#39;</span>, <span class="st">&#39;brown hair&#39;</span>, <span class="st">&#39;brunch&#39;</span>,
+ <span class="st">&#39;building&#39;</span>, <span class="st">&#39;business&#39;</span>, <span class="st">&#39;business administration&#39;</span>,
+ <span class="st">&#39;business development&#39;</span>, <span class="st">&#39;business executive&#39;</span>, <span class="st">&#39;businessperson&#39;</span>,
+ <span class="st">&#39;caipirinha&#39;</span>, <span class="st">&#39;calligraphy&#39;</span>, <span class="st">&#39;car&#39;</span>, <span class="st">&#39;ceiling&#39;</span>, <span class="st">&#39;ceremony&#39;</span>, <span class="st">&#39;chair&#39;</span>,
+ <span class="st">&#39;champagne&#39;</span>, <span class="st">&#39;champagne stemware&#39;</span>, <span class="st">&#39;championship&#39;</span>, <span class="st">&#39;cheek&#39;</span>, <span class="st">&#39;chin&#39;</span>,
+ <span class="st">&#39;circle&#39;</span>, <span class="st">&#39;citric acid&#39;</span>, <span class="st">&#39;city&#39;</span>, <span class="st">&#39;cityscape&#39;</span>, <span class="st">&#39;classic cocktail&#39;</span>,
+ <span class="st">&#39;clip art&#39;</span>, <span class="st">&#39;close up&#39;</span>, <span class="st">&#39;clothing&#39;</span>, <span class="st">&#39;cloud&#39;</span>, <span class="st">&#39;club&#39;</span>, <span class="st">&#39;coast&#39;</span>,
+ <span class="st">&#39;coastal and oceanic landforms&#39;</span>, <span class="st">&#39;cobalt blue&#39;</span>, <span class="st">&#39;cocktail&#39;</span>,
+ <span class="st">&#39;cocktail garnish&#39;</span>, <span class="st">&#39;cognac&#39;</span>, <span class="st">&#39;collaboration&#39;</span>, <span class="st">&#39;commodity&#39;</span>,
+ <span class="st">&#39;communication&#39;</span>, <span class="st">&#39;community&#39;</span>, <span class="st">&#39;competition&#39;</span>, <span class="st">&#39;competition event&#39;</span>,
+ <span class="st">&#39;computer wallpaper&#39;</span>, <span class="st">&#39;concert&#39;</span>, <span class="st">&#39;convention&#39;</span>, <span class="st">&#39;convention center&#39;</span>,
+ <span class="st">&#39;conversation&#39;</span>, <span class="st">&#39;cook&#39;</span>, <span class="st">&#39;cookware and bakeware&#39;</span>, <span class="st">&#39;cosmopolitan&#39;</span>,
+ <span class="st">&#39;costume&#39;</span>, <span class="st">&#39;cottage&#39;</span>, <span class="st">&#39;crop&#39;</span>, <span class="st">&#39;crowd&#39;</span>, <span class="st">&#39;cuba libre&#39;</span>, <span class="st">&#39;cuisine&#39;</span>,
+ <span class="st">&#39;cup&#39;</span>, <span class="st">&#39;daiquiri&#39;</span>, <span class="st">&#39;dairy product&#39;</span>, <span class="st">&#39;dance&#39;</span>, <span class="st">&#39;dancer&#39;</span>,
+ <span class="st">&#39;dark n stormy&#39;</span>, <span class="st">&#39;darkness&#39;</span>, <span class="st">&#39;daylighting&#39;</span>, <span class="st">&#39;daytime&#39;</span>, <span class="st">&#39;design&#39;</span>,
+ <span class="st">&#39;dessert&#39;</span>, <span class="st">&#39;dessert wine&#39;</span>, <span class="st">&#39;dinner&#39;</span>, <span class="st">&#39;disco&#39;</span>, <span class="st">&#39;dish&#39;</span>,
+ <span class="st">&#39;display advertising&#39;</span>, <span class="st">&#39;display device&#39;</span>, <span class="st">&#39;distilled beverage&#39;</span>,
+ <span class="st">&#39;dock&#39;</span>, <span class="st">&#39;dress&#39;</span>, <span class="st">&#39;drink&#39;</span>, <span class="st">&#39;drinking&#39;</span>, <span class="st">&#39;drinkware&#39;</span>, <span class="st">&#39;eating&#39;</span>,
+ <span class="st">&#39;ecosystem&#39;</span>, <span class="st">&#39;elder&#39;</span>, <span class="st">&#39;electric blue&#39;</span>, <span class="st">&#39;electronic device&#39;</span>,
+ <span class="st">&#39;electronics&#39;</span>, <span class="st">&#39;energy&#39;</span>, <span class="st">&#39;entertainment&#39;</span>, <span class="st">&#39;entrepreneur&#39;</span>, <span class="st">&#39;estate&#39;</span>,
+ <span class="st">&#39;evening&#39;</span>, <span class="st">&#39;event&#39;</span>, <span class="st">&#39;executive officer&#39;</span>, <span class="st">&#39;exhibition&#39;</span>, <span class="st">&#39;eyebrow&#39;</span>,
+ <span class="st">&#39;eyewear&#39;</span>, <span class="st">&#39;facade&#39;</span>, <span class="st">&#39;face&#39;</span>, <span class="st">&#39;facial expression&#39;</span>, <span class="st">&#39;facial hair&#39;</span>,
+ <span class="st">&#39;factory&#39;</span>, <span class="st">&#39;farm&#39;</span>, <span class="st">&#39;fashion&#39;</span>, <span class="st">&#39;fashion accessory&#39;</span>, <span class="st">&#39;fashion design&#39;</span>,
+ <span class="st">&#39;fashion model&#39;</span>, <span class="st">&#39;fashion show&#39;</span>, <span class="st">&#39;festival&#39;</span>, <span class="st">&#39;field&#39;</span>, <span class="st">&#39;finger&#39;</span>,
+ <span class="st">&#39;finger food&#39;</span>, <span class="st">&#39;flavor&#39;</span>, <span class="st">&#39;floor&#39;</span>, <span class="st">&#39;flooring&#39;</span>, <span class="st">&#39;flora&#39;</span>,
+ <span class="st">&#39;floral design&#39;</span>, <span class="st">&#39;floristry&#39;</span>, <span class="st">&#39;flower&#39;</span>, <span class="st">&#39;flower arranging&#39;</span>,
+ <span class="st">&#39;flowering plant&#39;</span>, <span class="st">&#39;font&#39;</span>, <span class="st">&#39;food&#39;</span>, <span class="st">&#39;forehead&#39;</span>, <span class="st">&#39;formal wear&#39;</span>,
+ <span class="st">&#39;friendship&#39;</span>, <span class="st">&#39;frozen dessert&#39;</span>, <span class="st">&#39;fruit&#39;</span>, <span class="st">&#39;fun&#39;</span>, <span class="st">&#39;function hall&#39;</span>,
+ <span class="st">&#39;furniture&#39;</span>, <span class="st">&#39;fuzzy navel&#39;</span>, <span class="st">&#39;fete&#39;</span>, <span class="st">&#39;games&#39;</span>, <span class="st">&#39;garden&#39;</span>, <span class="st">&#39;gentleman&#39;</span>,
+ <span class="st">&#39;gimlet&#39;</span>, <span class="st">&#39;gin and tonic&#39;</span>, <span class="st">&#39;girl&#39;</span>, <span class="st">&#39;glass&#39;</span>, <span class="st">&#39;glass bottle&#39;</span>,
+ <span class="st">&#39;glasses&#39;</span>, <span class="st">&#39;grape&#39;</span>, <span class="st">&#39;grapevine family&#39;</span>, <span class="st">&#39;graphic design&#39;</span>,
+ <span class="st">&#39;graphics&#39;</span>, <span class="st">&#39;grass&#39;</span>, <span class="st">&#39;grass family&#39;</span>, <span class="st">&#39;grassland&#39;</span>, <span class="st">&#39;green&#39;</span>, <span class="st">&#39;grog&#39;</span>,
+ <span class="st">&#39;hair&#39;</span>, <span class="st">&#39;hairstyle&#39;</span>, <span class="st">&#39;hand&#39;</span>, <span class="st">&#39;happiness&#39;</span>, <span class="st">&#39;harvey wallbanger&#39;</span>,
+ <span class="st">&#39;headgear&#39;</span>, <span class="st">&#39;health and beauty&#39;</span>, <span class="st">&#39;highball&#39;</span>, <span class="st">&#39;highball glass&#39;</span>,
+ <span class="st">&#39;highland&#39;</span>, <span class="st">&#39;hill&#39;</span>, <span class="st">&#39;hill station&#39;</span>, <span class="st">&#39;historic site&#39;</span>, <span class="st">&#39;history&#39;</span>,
+ <span class="st">&#39;home&#39;</span>, <span class="st">&#39;horizon&#39;</span>, <span class="st">&#39;house&#39;</span>, <span class="st">&#39;human&#39;</span>, <span class="st">&#39;human behavior&#39;</span>,
+ <span class="st">&#39;human hair color&#39;</span>, <span class="st">&#39;illustration&#39;</span>, <span class="st">&#39;indoor games and sports&#39;</span>,
+ <span class="st">&#39;industry&#39;</span>, <span class="st">&#39;infrastructure&#39;</span>, <span class="st">&#39;ingredient&#39;</span>, <span class="st">&#39;institution&#39;</span>,
+ <span class="st">&#39;interaction&#39;</span>, <span class="st">&#39;interior design&#39;</span>, <span class="st">&#39;irish cream&#39;</span>, <span class="st">&#39;jeans&#39;</span>, <span class="st">&#39;job&#39;</span>,
+ <span class="st">&#39;joint&#39;</span>, <span class="st">&#39;juice&#39;</span>, <span class="st">&#39;label&#39;</span>, <span class="st">&#39;lady&#39;</span>, <span class="st">&#39;land lot&#39;</span>, <span class="st">&#39;landmark&#39;</span>,
+ <span class="st">&#39;landscape&#39;</span>, <span class="st">&#39;leaf&#39;</span>, <span class="st">&#39;lecture&#39;</span>, <span class="st">&#39;leg&#39;</span>, <span class="st">&#39;leisure&#39;</span>, <span class="st">&#39;lemon juice&#39;</span>,
+ <span class="st">&#39;lemon lime&#39;</span>, <span class="st">&#39;lemonade&#39;</span>, <span class="st">&#39;light&#39;</span>, <span class="st">&#39;light fixture&#39;</span>, <span class="st">&#39;lighting&#39;</span>,
+ <span class="st">&#39;lime&#39;</span>, <span class="st">&#39;lime juice&#39;</span>, <span class="st">&#39;limeade&#39;</span>, <span class="st">&#39;line&#39;</span>, <span class="st">&#39;liqueur&#39;</span>,
+ <span class="st">&#39;liqueur coffee&#39;</span>, <span class="st">&#39;liquid&#39;</span>, <span class="st">&#39;liquor store&#39;</span>, <span class="st">&#39;local food&#39;</span>, <span class="st">&#39;logo&#39;</span>,
+ <span class="st">&#39;long hair&#39;</span>, <span class="st">&#39;long island iced tea&#39;</span>, <span class="st">&#39;lunch&#39;</span>, <span class="st">&#39;machine&#39;</span>,
+ <span class="st">&#39;macro photography&#39;</span>, <span class="st">&#39;magenta&#39;</span>, <span class="st">&#39;mai tai&#39;</span>, <span class="st">&#39;male&#39;</span>, <span class="st">&#39;man&#39;</span>,
+ <span class="st">&#39;management&#39;</span>, <span class="st">&#39;margarita&#39;</span>, <span class="st">&#39;marina&#39;</span>, <span class="st">&#39;martini&#39;</span>, <span class="st">&#39;martini glass&#39;</span>,
+ <span class="st">&#39;mason jar&#39;</span>, <span class="st">&#39;material&#39;</span>, <span class="st">&#39;meal&#39;</span>, <span class="st">&#39;meeting&#39;</span>, <span class="st">&#39;metal&#39;</span>, <span class="st">&#39;metropolis&#39;</span>,
+ <span class="st">&#39;metropolitan area&#39;</span>, <span class="st">&#39;microphone&#39;</span>, <span class="st">&#39;midnight&#39;</span>, <span class="st">&#39;mint julep&#39;</span>,
+ <span class="st">&#39;mode of transport&#39;</span>, <span class="st">&#39;modern art&#39;</span>, <span class="st">&#39;mojito&#39;</span>, <span class="st">&#39;monochrome&#39;</span>,
+ <span class="st">&#39;monochrome photography&#39;</span>, <span class="st">&#39;morning&#39;</span>, <span class="st">&#39;motivational speaker&#39;</span>,
+ <span class="st">&#39;motor vehicle&#39;</span>, <span class="st">&#39;mountain&#39;</span>, <span class="st">&#39;multimedia&#39;</span>, <span class="st">&#39;muscle&#39;</span>, <span class="st">&#39;music&#39;</span>,
+ <span class="st">&#39;music artist&#39;</span>, <span class="st">&#39;music venue&#39;</span>, <span class="st">&#39;musical instrument&#39;</span>,
+ <span class="st">&#39;musical instrument accessory&#39;</span>, <span class="st">&#39;musical theatre&#39;</span>, <span class="st">&#39;musician&#39;</span>,
+ <span class="st">&#39;nail&#39;</span>, <span class="st">&#39;nan&#39;</span>, <span class="st">&#39;nature&#39;</span>, <span class="st">&#39;nature reserve&#39;</span>, <span class="st">&#39;neck&#39;</span>, <span class="st">&#39;necktie&#39;</span>,
+ <span class="st">&#39;negroni&#39;</span>, <span class="st">&#39;neighbourhood&#39;</span>, <span class="st">&#39;neon&#39;</span>, <span class="st">&#39;news conference&#39;</span>, <span class="st">&#39;night&#39;</span>,
+ <span class="st">&#39;nightclub&#39;</span>, <span class="st">&#39;non alcoholic beverage&#39;</span>, <span class="st">&#39;nose&#39;</span>, <span class="st">&#39;ocean&#39;</span>, <span class="st">&#39;official&#39;</span>,
+ <span class="st">&#39;old fashioned&#39;</span>, <span class="st">&#39;old fashioned glass&#39;</span>, <span class="st">&#39;orange&#39;</span>, <span class="st">&#39;orange drink&#39;</span>,
+ <span class="st">&#39;orator&#39;</span>, <span class="st">&#39;organism&#39;</span>, <span class="st">&#39;outdoor structure&#39;</span>, <span class="st">&#39;outerwear&#39;</span>,
+ <span class="st">&#39;packaging and labeling&#39;</span>, <span class="st">&#39;painting&#39;</span>, <span class="st">&#39;palm tree&#39;</span>, <span class="st">&#39;paper&#39;</span>, <span class="st">&#39;party&#39;</span>,
+ <span class="st">&#39;pattern&#39;</span>, <span class="st">&#39;pedestrian&#39;</span>, <span class="st">&#39;percussion&#39;</span>, <span class="st">&#39;performance&#39;</span>,
+ <span class="st">&#39;performance art&#39;</span>, <span class="st">&#39;performing arts&#39;</span>, <span class="st">&#39;perfume&#39;</span>, <span class="st">&#39;person&#39;</span>, <span class="st">&#39;petal&#39;</span>,
+ <span class="st">&#39;phenomenon&#39;</span>, <span class="st">&#39;photograph&#39;</span>, <span class="st">&#39;photography&#39;</span>, <span class="st">&#39;pink&#39;</span>, <span class="st">&#39;pint glass&#39;</span>,
+ <span class="st">&#39;pint us&#39;</span>, <span class="st">&#39;plain&#39;</span>, <span class="st">&#39;plant&#39;</span>, <span class="st">&#39;plant community&#39;</span>, <span class="st">&#39;plantation&#39;</span>,
+ <span class="st">&#39;portrait&#39;</span>, <span class="st">&#39;poster&#39;</span>, <span class="st">&#39;prairie&#39;</span>, <span class="st">&#39;presentation&#39;</span>, <span class="st">&#39;produce&#39;</span>,
+ <span class="st">&#39;product&#39;</span>, <span class="st">&#39;product design&#39;</span>, <span class="st">&#39;profession&#39;</span>, <span class="st">&#39;professional&#39;</span>,
+ <span class="st">&#39;promontory&#39;</span>, <span class="st">&#39;property&#39;</span>, <span class="st">&#39;pub&#39;</span>, <span class="st">&#39;public event&#39;</span>, <span class="st">&#39;public relations&#39;</span>,
+ <span class="st">&#39;public space&#39;</span>, <span class="st">&#39;public speaking&#39;</span>, <span class="st">&#39;punch&#39;</span>, <span class="st">&#39;purple&#39;</span>, <span class="st">&#39;real estate&#39;</span>,
+ <span class="st">&#39;recipe&#39;</span>, <span class="st">&#39;recreation&#39;</span>, <span class="st">&#39;rectangle&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;red wine&#39;</span>,
+ <span class="st">&#39;reflection&#39;</span>, <span class="st">&#39;residential area&#39;</span>, <span class="st">&#39;restaurant&#39;</span>, <span class="st">&#39;river&#39;</span>, <span class="st">&#39;road&#39;</span>,
+ <span class="st">&#39;rock&#39;</span>, <span class="st">&#39;rock concert&#39;</span>, <span class="st">&#39;roof&#39;</span>, <span class="st">&#39;room&#39;</span>, <span class="st">&#39;rural area&#39;</span>,
+ <span class="st">&#39;scotch whisky&#39;</span>, <span class="st">&#39;screenshot&#39;</span>, <span class="st">&#39;sea&#39;</span>, <span class="st">&#39;sea breeze&#39;</span>, <span class="st">&#39;seminar&#39;</span>,
+ <span class="st">&#39;senior citizen&#39;</span>, <span class="st">&#39;service&#39;</span>, <span class="st">&#39;session musician&#39;</span>, <span class="st">&#39;shoe&#39;</span>, <span class="st">&#39;shore&#39;</span>,
+ <span class="st">&#39;shoulder&#39;</span>, <span class="st">&#39;shrubland&#39;</span>, <span class="st">&#39;sign&#39;</span>, <span class="st">&#39;signage&#39;</span>, <span class="st">&#39;singer&#39;</span>,
+ <span class="st">&#39;singer songwriter&#39;</span>, <span class="st">&#39;singing&#39;</span>, <span class="st">&#39;sitting&#39;</span>, <span class="st">&#39;sky&#39;</span>, <span class="st">&#39;sleeve&#39;</span>, <span class="st">&#39;smile&#39;</span>,
+ <span class="st">&#39;snapshot&#39;</span>, <span class="st">&#39;social group&#39;</span>, <span class="st">&#39;socialite&#39;</span>, <span class="st">&#39;soil&#39;</span>, <span class="st">&#39;space&#39;</span>,
+ <span class="st">&#39;sparkling wine&#39;</span>, <span class="st">&#39;speech&#39;</span>, <span class="st">&#39;spokesperson&#39;</span>, <span class="st">&#39;sport venue&#39;</span>, <span class="st">&#39;sports&#39;</span>,
+ <span class="st">&#39;spring&#39;</span>, <span class="st">&#39;staff&#39;</span>, <span class="st">&#39;stage&#39;</span>, <span class="st">&#39;standing&#39;</span>, <span class="st">&#39;stemware&#39;</span>, <span class="st">&#39;still life&#39;</span>,
+ <span class="st">&#39;still life photography&#39;</span>, <span class="st">&#39;stock photography&#39;</span>, <span class="st">&#39;street&#39;</span>,
+ <span class="st">&#39;string instrument&#39;</span>, <span class="st">&#39;structure&#39;</span>, <span class="st">&#39;student&#39;</span>, <span class="st">&#39;suit&#39;</span>, <span class="st">&#39;summer&#39;</span>,
+ <span class="st">&#39;sunglasses&#39;</span>, <span class="st">&#39;sunlight&#39;</span>, <span class="st">&#39;superfood&#39;</span>, <span class="st">&#39;supper&#39;</span>, <span class="st">&#39;symbol&#39;</span>,
+ <span class="st">&#39;symmetry&#39;</span>, <span class="st">&#39;t shirt&#39;</span>, <span class="st">&#39;table&#39;</span>, <span class="st">&#39;tableware&#39;</span>, <span class="st">&#39;taste&#39;</span>, <span class="st">&#39;team&#39;</span>,
+ <span class="st">&#39;team sport&#39;</span>, <span class="st">&#39;technology&#39;</span>, <span class="st">&#39;television program&#39;</span>,
+ <span class="st">&#39;tennessee whiskey&#39;</span>, <span class="st">&#39;text&#39;</span>, <span class="st">&#39;textile&#39;</span>, <span class="st">&#39;texture&#39;</span>, <span class="st">&#39;the rickey&#39;</span>,
+ <span class="st">&#39;theatre&#39;</span>, <span class="st">&#39;tourism&#39;</span>, <span class="st">&#39;tourist attraction&#39;</span>, <span class="st">&#39;town&#39;</span>, <span class="st">&#39;tradition&#39;</span>,
+ <span class="st">&#39;training&#39;</span>, <span class="st">&#39;transport&#39;</span>, <span class="st">&#39;tree&#39;</span>, <span class="st">&#39;tumbler&#39;</span>, <span class="st">&#39;tuxedo&#39;</span>, <span class="st">&#39;uniform&#39;</span>,
+ <span class="st">&#39;urban area&#39;</span>, <span class="st">&#39;vacation&#39;</span>, <span class="st">&#39;vegetable&#39;</span>, <span class="st">&#39;vegetarian food&#39;</span>,
+ <span class="st">&#39;vegetation&#39;</span>, <span class="st">&#39;vehicle&#39;</span>, <span class="st">&#39;vineyard&#39;</span>, <span class="st">&#39;violet&#39;</span>, <span class="st">&#39;vision care&#39;</span>,
+ <span class="st">&#39;vitis&#39;</span>, <span class="st">&#39;vodka&#39;</span>, <span class="st">&#39;vodka and tonic&#39;</span>, <span class="st">&#39;walking&#39;</span>, <span class="st">&#39;wall&#39;</span>, <span class="st">&#39;water&#39;</span>,
+ <span class="st">&#39;water bottle&#39;</span>, <span class="st">&#39;water resources&#39;</span>, <span class="st">&#39;water transportation&#39;</span>,
+ <span class="st">&#39;watercraft&#39;</span>, <span class="st">&#39;waterway&#39;</span>, <span class="st">&#39;whisky&#39;</span>, <span class="st">&#39;white&#39;</span>, <span class="st">&#39;white collar worker&#39;</span>,
+ <span class="st">&#39;white wine&#39;</span>, <span class="st">&#39;wilderness&#39;</span>, <span class="st">&#39;window&#39;</span>, <span class="st">&#39;wine&#39;</span>, <span class="st">&#39;wine bottle&#39;</span>,
+ <span class="st">&#39;wine cocktail&#39;</span>, <span class="st">&#39;wine glass&#39;</span>, <span class="st">&#39;winery&#39;</span>, <span class="st">&#39;winter&#39;</span>, <span class="st">&#39;woo woo&#39;</span>,
+ <span class="st">&#39;wood&#39;</span>, <span class="st">&#39;wood stain&#39;</span>, <span class="st">&#39;woody plant&#39;</span>, <span class="st">&#39;world&#39;</span>, <span class="st">&#39;yellow&#39;</span>, <span class="st">&#39;youth&#39;</span>]</code></pre></div>
+
+<!-- 
+Do not edit this page.
+
+References are automatically generated from the BibTex file (References.bib)
+
+...which you should create using your reference manager.
+-->
+<h1 id="references" class="unnumbered">References</h1>
+<div id="refs" class="references">
+<div id="ref-barron">
+<p>Barron, A.R., 1993. Universal approximation bounds for superpositions of a sigmoidal function. <em>IEEE Transactions on Information Theory</em>, 39(3), pp.930–945.</p>
+</div>
+<div id="ref-quiver">
+<p>Bian, J., 2016. Quiver.</p>
+</div>
+<div id="ref-rf">
+<p>Breiman, L. &amp; Schapire, E., 2001. Random forests. In <em>Machine learning</em>. pp. 5–32.</p>
+</div>
+<div id="ref-structured_unstructured">
+<p>BrightPlanet, 2012. Structured vs. unstructured data.</p>
+</div>
+<div id="ref-xgboost">
+<p>Chen, T. &amp; Guestrin, C., 2016. XGBoost: A scalable tree boosting system. <em>CoRR</em>, abs/1603.02754. Available at: <a href="http://arxiv.org/abs/1603.02754" class="uri">http://arxiv.org/abs/1603.02754</a>.</p>
+</div>
+<div id="ref-chollet2015keras">
+<p>Chollet, F. &amp; others, 2015. Keras.</p>
+</div>
+<div id="ref-cisco">
+<p>Cisco, 2017. Cisco visual networking index: Global mobile data traffic forecast update, 2016–2021 white paper - cisco.</p>
+</div>
+<div id="ref-svm">
+<p>Cortes, C. &amp; Vapnik, V., 1995. Support-vector networks. In <em>Machine learning</em>. pp. 273–297.</p>
+</div>
+<div id="ref-adagrad">
+<p>Duchi, J., Hazan, E. &amp; Singer, Y., 2010. <em>Adaptive subgradient methods for online learning and stochastic optimization</em>, EECS Department, University of California, Berkeley. Available at: <a href="http://www2.eecs.berkeley.edu/Pubs/TechRpts/2010/EECS-2010-24.html" class="uri">http://www2.eecs.berkeley.edu/Pubs/TechRpts/2010/EECS-2010-24.html</a>.</p>
+</div>
+<div id="ref-guide_cnn">
+<p>Dumoulin, V. &amp; Visin, F., 2016. A guide to convolution arithmetic for deep learning.</p>
+</div>
+<div id="ref-survey_noise">
+<p>Frenay, B. &amp; Verleysen, M., 2014. Classification in the presence of label noise: A survey. <em>IEEE Transactions on Neural Networks and Learning Systems</em>, 25(5), pp.845–869.</p>
+</div>
+<div id="ref-dataiku">
+<p>Ghazouani, Y., 2016. How to use deep learning and transfer learning to tag images.</p>
+</div>
+<div id="ref-vision_api">
+<p>Google, Google cloud vision api.</p>
+</div>
+<div id="ref-detector_benchmark">
+<p>Huang, J. et al., 2016. Speed/accuracy trade-offs for modern convolutional object detectors. <em>CoRR</em>, abs/1611.10012. Available at: <a href="http://arxiv.org/abs/1611.10012" class="uri">http://arxiv.org/abs/1611.10012</a>.</p>
+</div>
+<div id="ref-batchnorm">
+<p>Ioffe, S. &amp; Szegedy, C., 2015. Batch normalization: Accelerating deep network training by reducing internal covariate shift. <em>CoRR</em>, abs/1502.03167. Available at: <a href="http://arxiv.org/abs/1502.03167" class="uri">http://arxiv.org/abs/1502.03167</a>.</p>
+</div>
+<div id="ref-cs231_chapt1">
+<p>Karpathy, A., CS231n convolutional neural networks for visual recognition, intro.</p>
+</div>
+<div id="ref-human_imagenet">
+<p>Karpathy, A., 2014. What i learned from competing against a convnet on imagenet.</p>
+</div>
+<div id="ref-adam">
+<p>Kingma, D.P. &amp; Ba, J., 2014. Adam: A method for stochastic optimization. <em>CoRR</em>, abs/1412.6980. Available at: <a href="http://arxiv.org/abs/1412.6980" class="uri">http://arxiv.org/abs/1412.6980</a>.</p>
+</div>
+<div id="ref-selu">
+<p>Klambauer, G. et al., 2017. Self-normalizing neural networks. <em>CoRR</em>, abs/1706.02515. Available at: <a href="http://arxiv.org/abs/1706.02515" class="uri">http://arxiv.org/abs/1706.02515</a>.</p>
+</div>
+<div id="ref-krizhevsky2012imagenet">
+<p>Krizhevsky, A., Sutskever, I. &amp; Hinton, G.E., 2012. Imagenet classification with deep convolutional neural networks. In <em>Advances in neural information processing systems</em>. pp. 1097–1105.</p>
+</div>
+<div id="ref-lecun-98">
+<p>LeCun, Y. et al., 1998. Gradient-based learning applied to document recognition. <em>Proceedings of the IEEE</em>, 86(11), pp.2278–2324.</p>
+</div>
+<div id="ref-LeCun2013">
+<p>LeCun, Yann &amp; M. Ranzato, 2013. Deep learning tutorial. <em>Tutorials in International Conference on Machine Learning (ICML’13).</em>, pp.1–29.</p>
+</div>
+<div id="ref-liu2016ssd">
+<p>Liu, W. et al., 2016. SSD: Single shot multibox detector. In <em>ECCV</em>.</p>
+</div>
+<div id="ref-tsnerelease">
+<p>Maaten, L. van der &amp; Hinton, G.E., 2008. Visualizing high-dimensional data using t-sne. <em>Journal of Machine Learning Research</em>, 9, pp.2579–2605.</p>
+</div>
+<div id="ref-word2vec">
+<p>Mikolov, T. et al., 2013. Distributed representations of words and phrases and their compositionality. <em>CoRR</em>, abs/1310.4546. Available at: <a href="http://arxiv.org/abs/1310.4546" class="uri">http://arxiv.org/abs/1310.4546</a>.</p>
+</div>
+<div id="ref-neuralnets_approx">
+<p>Nielsen, M.A., 2015. Neural networks and deep learning.</p>
+</div>
+<div id="ref-heuritech_fcnn">
+<p>Ollion, X., 2017. Fully convolutional neural networks.</p>
+</div>
+<div id="ref-bootstrapping">
+<p>Reed, S. et al., 2014. Training Deep Neural Networks on Noisy Labels with Bootstrapping., pp.1–11. Available at: <a href="http://arxiv.org/abs/1412.6596" class="uri">http://arxiv.org/abs/1412.6596</a>.</p>
+</div>
+<div id="ref-fasterrcnn">
+<p>Ren, S. et al., 2015. Faster R-CNN: towards real-time object detection with region proposal networks. <em>CoRR</em>, abs/1506.01497. Available at: <a href="http://arxiv.org/abs/1506.01497" class="uri">http://arxiv.org/abs/1506.01497</a>.</p>
+</div>
+<div id="ref-rosenblatt1957perceptron">
+<p>Rosenblatt, F., 1957. <em>The perceptron, a perceiving and recognizing automaton project para</em>, Cornell Aeronautical Laboratory. Available at: <a href="https://books.google.ch/books?id=P\_XGPgAACAAJ" class="uri">https://books.google.ch/books?id=P\_XGPgAACAAJ</a>.</p>
+</div>
+<div id="ref-ilsvrc">
+<p>Russakovsky, O. et al., 2014. ImageNet large scale visual recognition challenge. <em>CoRR</em>, abs/1409.0575. Available at: <a href="http://arxiv.org/abs/1409.0575" class="uri">http://arxiv.org/abs/1409.0575</a>.</p>
+</div>
+<div id="ref-RectLabel">
+<p>ryouchinsa, RectLabel - labeling images for bounding box object detection.</p>
+</div>
+<div id="ref-AISTATS07_SalakhutdinovH">
+<p>Salakhutdinov, R. &amp; Hinton, G.E., 2007. Learning a nonlinear embedding by preserving class neighbourhood structure. In M. Meila &amp; X. Shen, eds. <em>Proceedings of the eleventh international conference on artificial intelligence and statistics (aistats-07)</em>. Journal of Machine Learning Research - Proceedings Track, pp. 412–419. Available at: <a href="http://jmlr.csail.mit.edu/proceedings/papers/v2/salakhutdinov07a/salakhutdinov07a.pdf" class="uri">http://jmlr.csail.mit.edu/proceedings/papers/v2/salakhutdinov07a/salakhutdinov07a.pdf</a>.</p>
+</div>
+<div id="ref-dropout">
+<p>Srivastava, N. et al., 2014. Dropout: A simple way to prevent neural networks from overfitting. <em>Journal of Machine Learning Research</em>, 15, pp.1929–1958. Available at: <a href="http://jmlr.org/papers/v15/srivastava14a.html" class="uri">http://jmlr.org/papers/v15/srivastava14a.html</a>.</p>
+</div>
+<div id="ref-data_effectiveness">
+<p>Sun, C. et al., 2017. Revisiting unreasonable effectiveness of data in deep learning era.</p>
+</div>
+<div id="ref-scikit-multilabel">
+<p>Szymański, P. &amp; Kajdanowicz, T., 2017. A scikit-based Python environment for performing multi-label classification. <em>ArXiv e-prints</em>.</p>
+</div>
+<div id="ref-rmsprop">
+<p>Tieleman, T. &amp; Hinton, G., 2012. Lecture 6.5-rmsprop: Divide the gradient by a running average of its recent magnitude. <em>COURSERA: Neural networks for machine learning</em>, 4(2), pp.26–31.</p>
+</div>
+<div id="ref-labelme">
+<p>Torralba, A., Russell, B.C. &amp; Yuen, J., 2010. LabelMe: Online image annotation and applications. <em>Proceedings of the IEEE</em>, 98(8), pp.1467–1484.</p>
+</div>
+<div id="ref-mlepfl">
+<p>Urbanke, R., 2016. Machine learning cs-433 - 2016 | mlo.</p>
+</div>
+<div id="ref-distilltsne">
+<p>Wattenberg, M., Viégas, F. &amp; Johnson, I., 2016. How to use t-sne effectively. <em>Distill</em>. Available at: <a href="http://distill.pub/2016/misread-tsne" class="uri">http://distill.pub/2016/misread-tsne</a>.</p>
+</div>
+<div id="ref-sun">
+<p>Xiao, J. et al., 2010. SUN database: Large-scale scene recognition from abbey to zoo. In <em>CVPR</em>. IEEE Computer Society, pp. 3485–3492. Available at: <a href="http://dblp.uni-trier.de/db/conf/cvpr/cvpr2010.html#XiaoHEOT10" class="uri">http://dblp.uni-trier.de/db/conf/cvpr/cvpr2010.html#XiaoHEOT10</a>.</p>
+</div>
+<div id="ref-massive-noisy">
+<p>Xiao, T. et al., Learning from Massive Noisy Labeled Data for Image Classification.</p>
+</div>
+<div id="ref-adadelta">
+<p>Zeiler, M.D., 2012. ADADELTA: an adaptive learning rate method. <em>CoRR</em>, abs/1212.5701. Available at: <a href="http://arxiv.org/abs/1212.5701" class="uri">http://arxiv.org/abs/1212.5701</a>.</p>
+</div>
+<div id="ref-Zeiler2014">
+<p>Zeiler, M.D. &amp; Fergus, R., 2014. Visualizing and Understanding Convolutional Networks arXiv:1311.2901v3 [cs.CV] 28 Nov 2013. <em>Computer Vision–ECCV 2014</em>, 8689, pp.818–833. Available at: <a href="http://arxiv.org/abs/1311.2901" class="uri">http://arxiv.org/abs/1311.2901</a>.</p>
+</div>
+<div id="ref-6638312">
+<p>Zeiler, M.D. et al., 2013. On rectified linear units for speech processing. In <em>2013 ieee international conference on acoustics, speech and signal processing</em>. pp. 3517–3521.</p>
+</div>
+<div id="ref-noise_comparison">
+<p>Zhu, X. &amp; Wu, X., 2004. Class noise vs. attribute noise: A quantitative study., 22, pp.177–210.</p>
+</div>
+</div>
+            </body>
+</html>
