@@ -10,8 +10,8 @@ name = "bio"
 page = "https://political-radio-a93.notion.site/Joan-Salv-Soler-aa45d5156b814be68876561c02381c69"
 
 # optionally apply notion's dark mode, remove the line below to use the default light mode
-theme = "dark"
-# 
+# theme = "dark"
+
 # ## Global Site Settings ##
 # # this [site] table defines override settings for the whole site
 # # later on we will see how to define settings for a single page
