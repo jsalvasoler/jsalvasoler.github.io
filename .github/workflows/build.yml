@@ -28,6 +28,9 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: List output directory
+      run: ls -l out
+
     # - name: Export (optional)
     #   run: npm run export
 
