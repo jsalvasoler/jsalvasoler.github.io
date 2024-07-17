@@ -28,11 +28,11 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Export (optional)
+      run: npm run export
+
     - name: List output directory
       run: ls -l out
-
-    # - name: Export (optional)
-    #   run: npm run export
 
     - name: Deploy to GitHub Pages
       run: npx gh-pages -d out
