@@ -10,13 +10,10 @@
     "node": ">=16"
   },
   "scripts": {
-    "homepage": "https://jsalvasoler.github.io/nextjs-notion-starter-kit",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out",
+    "deploy": "vercel deploy",
     "deps": "run-s deps:*",
     "deps:update": "[ -z $GITHUB_ACTIONS ] && yarn add notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:update on CI'",
     "deps:link": "[ -z $GITHUB_ACTIONS ] && yarn link notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:link on CI'",
@@ -39,8 +36,8 @@
     "fathom-client": "^3.4.1",
     "got": "^12.0.3",
     "isomorphic-unfetch": "^3.1.0",
-    "lqip-modern": "^2.0.0",
-    "next": "12",
+    "lqip-modern": "^1.2.0",
+    "next": "^12.3.1",
     "notion-client": "^6.15.6",
     "notion-types": "^6.15.6",
     "notion-utils": "^6.15.6",
@@ -52,7 +49,7 @@
     "react-dom": "^18.2.0",
     "react-notion-x": "^6.15.6",
     "react-tweet-embed": "^2.0.0",
-    "react-use": "^17.4.2",
+    "react-use": "^17.3.2",
     "rss": "^1.2.2"
   },
   "devDependencies": {
@@ -67,7 +64,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "gh-pages": "^6.1.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
