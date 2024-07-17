@@ -28,13 +28,13 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Export (optional)
-      run: npm run export
+    # - name: Export (optional)
+    #   run: npm run export
 
-    - name: List output directory
-      run: ls -l out
+    # - name: List output directory
+    #   run: ls -l out
 
     - name: Deploy to GitHub Pages
-      run: npx gh-pages -d out
+      run: npx gh-pages -d .next
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure you have a GITHUB_TOKEN secret set up
