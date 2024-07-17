@@ -28,6 +28,11 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Configure Git user
+      run: |
+        git config --global user.email "jsalvasoler@hotmail.com"
+        git config --global user.name "jsalvasoler"
+
     # - name: Export (optional)
     #   run: npm run export
 
