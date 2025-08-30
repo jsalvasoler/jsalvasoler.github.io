@@ -10,7 +10,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Joan Salvà Soler',
-  domain: 'jsalvasoler.vercel.app',
+  domain: 'jsalvasoler.github.io',
   author: 'Joan Salvà Soler',
 
   // open graph metadata (optional)
@@ -26,8 +26,8 @@ export default siteConfig({
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults
-  defaultPageIcon: 'https://jsalvasoler.vercel.app/icon.jpeg',
-  defaultPageCover: 'https://jsalvasoler.vercel.app/cover.jpg',
+  defaultPageIcon: 'https://jsalvasoler.github.io/icon.jpeg',
+  defaultPageCover: 'https://jsalvasoler.github.io/cover.jpg',
   defaultPageCoverPosition: 0.5,
 
   // whether or not to enable support for LQIP preview images (optional)

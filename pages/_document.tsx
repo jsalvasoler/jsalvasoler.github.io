@@ -23,10 +23,10 @@ export default class MyDocument extends Document {
 
             <link rel='manifest' href='/manifest.json' />
             
-            <link rel="alternate" href="https://jsalvasoler.vercel.app" hrefLang="x-default" />
-            <link rel="alternate" href="https://jsalvasoler.vercel.app" hrefLang="en" />
+            <link rel="alternate" href="https://jsalvasoler.github.io" hrefLang="x-default" />
+            <link rel="alternate" href="https://jsalvasoler.github.io" hrefLang="en" />
             
-            <link rel="canonical" href="https://jsalvasoler.vercel.app" />
+            <link rel="canonical" href="https://jsalvasoler.github.io" />
           </Head>
 
           <body>

@@ -15,7 +15,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "vercel deploy",
+    "deploy": "gh-pages -d out",
     "deps:upgrade": "[ -z $GITHUB_ACTIONS ] && pnpm up -L notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:update on CI'",
     "deps:link": "[ -z $GITHUB_ACTIONS ] && run-s deps:link:* || echo 'Skipping deps:update on CI'",
     "deps:unlink": "[ -z $GITHUB_ACTIONS ] && pnpm add notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:update on CI'",
@@ -66,6 +66,7 @@
     "@types/rss": "^0.0.32",
     "cross-env": "^7.0.2",
     "eslint": "^9.28.0",
+    "gh-pages": "^6.1.1",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3"

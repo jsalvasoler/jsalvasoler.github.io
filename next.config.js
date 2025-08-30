@@ -9,8 +9,12 @@ const withBundleAnalyzer = bundleAnalyzer({
 })
 
 export default withBundleAnalyzer({
+  output: 'export',
+  trailingSlash: true,
+  distDir: 'out',
   staticPageGenerationTimeout: 300,
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'www.notion.so' },
       { protocol: 'https', hostname: 'notion.so' },
@@ -18,7 +22,7 @@ export default withBundleAnalyzer({
       { protocol: 'https', hostname: 'abs.twimg.com' },
       { protocol: 'https', hostname: 'pbs.twimg.com' },
       { protocol: 'https', hostname: 's3.us-west-2.amazonaws.com' },
-      { protocol: 'https', hostname: 'jsalvasoler.vercel.app' },
+      { protocol: 'https', hostname: 'jsalvasoler.github.io' },
     ],
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
